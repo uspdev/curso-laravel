@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LivroController;
+use App\Http\Controllers\LivroGabrielaController;
 
-Route::get('/livros',[LivroController::class,'index']);
+Route::get('/livrogabrielas', [LivroGabrielaController::class, 'index']);
 
-Route::get('/livros/{isbn}',[LivroController::class,'show']);
+Route::get('/livrogabrielas/{isbn}',[LivroGabrielaController::class,'show']);
