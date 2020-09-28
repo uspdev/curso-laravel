@@ -13,7 +13,7 @@ use App\Http\Controllers\LivroRicardoController;
 use App\Http\Controllers\LivroMarisaController;
 use App\Http\Controllers\LivroVictorController;
 
-Route::get('/livros',[LivroController::class,'index']);
+Route::resource('livros', LivroController::class);
 
 Route::get('/livrogabrielas', [LivroGabrielaController::class, 'index']);
 
