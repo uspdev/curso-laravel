@@ -2,9 +2,9 @@
 
 @section('content')
 
-@forelse($livros as $livro)
+@forelse($livrosvictor as $livrovictor)
 
-@include('livros.partials.fields')
+@include('livrosvictor.partials.fields')
 <br>
 @empty
   Não há livros cadastrados nesses sistema ainda!
