@@ -15,9 +15,12 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
+            LivroGabrielaSeeder::class,
             LivroSeeder::class,
             LivroMarisaSeeder::class,
-            LivroVictorSeeder::class
+            LivroVictorSeeder::class,
+            LivroricardoSeeder::class,
+            LivroMarisaSeeder::class
         ]);
     }
 }
