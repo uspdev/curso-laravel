@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LivroGabrielaController;
 
 use App\Http\Controllers\LivroController;
+use App\Http\Controllers\LivroLauController;
 
 use App\Http\Controllers\LivroRicardoController;
 
@@ -17,6 +18,10 @@ Route::get('/livrogabrielas', [LivroGabrielaController::class, 'index']);
 
 Route::get('/livrogabrielas/{isbn}',[LivroGabrielaController::class,'show']);
 Route::get('/livros/{isbn}',[LivroController::class,'show']);
+
+Route::get('/livros_lau',[LivroLauController::class,'index']);
+
+Route::get('/livros_lau/{isbn}',[LivroLauController::class,'show']);
 
 Route::get('/livros-ricardo',[LivroRicardoController::class,'index']);
 
