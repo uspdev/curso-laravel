@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             LivroGabrielaSeeder::class,
             LivroSeeder::class,
+            LivroricardoSeeder::class,
             LivroMarisaSeeder::class
         ]);
     }
