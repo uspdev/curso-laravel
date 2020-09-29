@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\LivroGabrielaController;
 
 use App\Http\Controllers\LivroController;
@@ -32,5 +30,4 @@ Route::get('/livros-ricardo/{isbn}',[LivroRicardoController::class,'show']);
 Route::get('/livrosmarisa', [LivroMarisaController::class,'index']);
 Route::get('/livrosmarisa/{isbn}', [LivroMarisaController::class,'show']);
 
-Route::get('/livrosvictor', [LivroVictorController::class,'index']);
-Route::get('/livrosvictor/{isbn}', [LivroVictorController::class,'show']);
+Route::resource('livrosvictor', LivroVictorController::class);
