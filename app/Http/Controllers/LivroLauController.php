@@ -15,8 +15,8 @@ class LivroLauController extends Controller
     public function index()
     {
         $livrolaus = LivroLau::all();
-        return view('livrosLau.index', [
-            'livrolaus' => $livrolaus,
+        return view('livrosLau.index',[
+            'livrolaus' => $livrolaus
         ]);
     }
 
@@ -28,7 +28,7 @@ class LivroLauController extends Controller
     public function create()
     {
         return view('livrosLau.create',[
-            'livrolau' => new LivroLau
+            'livrolau' => new LivroLau,
         ]);
     }
 
@@ -45,7 +45,7 @@ class LivroLauController extends Controller
         $livrolau->autor = $request->autor;
         $livrolau->isbn = $request->isbn;
         $livrolau->save();
-        return redirect("/livros_lau");
+        return redirect("/livros_lau/{$livrolau->id}");
     }
 
     /**
@@ -56,7 +56,9 @@ class LivroLauController extends Controller
      */
     public function show(LivroLau $livrolau)
     {
-        return view('livrosLau.show', ['livrolau' => $livrolau]);
+        return view('livrosLau.show',[
+            'livrolau' => $livrolau
+        ]);
     }
 
     /**
