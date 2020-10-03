@@ -45,7 +45,7 @@ class LivroLauController extends Controller
         $livrolau->autor = $request->autor;
         $livrolau->isbn = $request->isbn;
         $livrolau->save();
-        return redirect("/livros_lau/{$livrolau->id}");
+        return redirect("/livrolau/{$livrolau->id}");
     }
 
     /**
@@ -87,7 +87,7 @@ class LivroLauController extends Controller
         $livrolau->autor = $request->autor;
         $livrolau->isbn = $request->isbn;
         $livrolau->update();
-        return redirect("/livros_lau/{$livrolau->id}");
+        return redirect("/livrolau/{$livrolau->id}");
     }
 
     /**
@@ -99,6 +99,6 @@ class LivroLauController extends Controller
     public function destroy(LivroLau $livrolau)
     {
         $livrolau->delete();
-        return redirect('/livros_lau');
+        return redirect('/livrolau');
     }
 }

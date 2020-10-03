@@ -24,7 +24,7 @@ Route::get('/livrossaotome',[LivroControllerSaotome::class,'index']);
 Route::get('/livrossaotome/{isbn}',[LivroControllerSaotome::class,'show']);
 
 // LivroLau
-Route::resource('/livros_lau',LivroLauController::class);
+Route::resource('/livrolau',LivroLauController::class);
 
 
 Route::get('/livros-ricardo',[LivroRicardoController::class,'index']);

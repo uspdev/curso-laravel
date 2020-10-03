@@ -16,5 +16,6 @@
             </div>
         </div>
         <button class="btn btn-success" type="submit">Enviar</button>
+        <a class="btn btn-success" href="/livrolau" role="button">Voltar</a>
     </div>
 </div>
