@@ -1,7 +1,7 @@
 @extends('mainsaotome')
 
 @section('title')
-{{ $livro->titulo ?? '' }}
+{{ $livroSaotome->titulo ?? '' }}
 @endsection
 
 @section('content')

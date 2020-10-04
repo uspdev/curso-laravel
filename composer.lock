@@ -3971,16 +3971,16 @@
         },
         {
             "name": "uspdev/laravel-usp-theme",
-            "version": "1.0.18",
+            "version": "1.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uspdev/laravel-usp-theme.git",
-                "reference": "ed031288f85089e7290932ce1748c68510436108"
+                "reference": "146189e82fd3c74b4c685ec124d00c227e41ed2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uspdev/laravel-usp-theme/zipball/ed031288f85089e7290932ce1748c68510436108",
-                "reference": "ed031288f85089e7290932ce1748c68510436108",
+                "url": "https://api.github.com/repos/uspdev/laravel-usp-theme/zipball/146189e82fd3c74b4c685ec124d00c227e41ed2f",
+                "reference": "146189e82fd3c74b4c685ec124d00c227e41ed2f",
                 "shasum": ""
             },
             "type": "library",
@@ -4007,7 +4007,7 @@
                 }
             ],
             "description": "usp theme for laravel",
-            "time": "2020-09-22T15:09:10+00:00"
+            "time": "2020-09-30T15:32:47+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -6341,5 +6341,6 @@
     "platform": {
         "php": "^7.3"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
