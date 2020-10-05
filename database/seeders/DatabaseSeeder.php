@@ -20,8 +20,9 @@ class DatabaseSeeder extends Seeder
             LivroGabrielaSeeder::class,
             LivroMarisaSeeder::class,
             LivroVictorSeeder::class,
-            LivroRicardoSeeder::class,
-            LivroMarisaSeeder::class
+            LivroricardoSeeder::class,
+            LivroMarisaSeeder::class,
+            LivroFabioFDRPSeeder::class,
         ]);
     }
 }
