@@ -6,6 +6,7 @@ use App\Http\Controllers\LivroGabrielaController;
 
 use App\Http\Controllers\LivroController;
 use App\Http\Controllers\LivroControllerSaotome;
+use App\Http\Controllers\LivroFabioFDRPController;
 use App\Http\Controllers\LivroLauController;
 
 use App\Http\Controllers\LivroRicardoController;
@@ -34,3 +35,6 @@ Route::get('/livrosmarisa/{isbn}', [LivroMarisaController::class,'show']);
 
 Route::get('/livrosvictor', [LivroVictorController::class,'index']);
 Route::get('/livrosvictor/{isbn}', [LivroVictorController::class,'show']);
+
+Route::get('/livros_fabiofdrp', [LivroFabioFDRPController::class,'index']);
+Route::get('/livros_fabiofdrp/{isbn}', [LivroFabioFDRPController::class,'show']);
