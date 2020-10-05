@@ -3,16 +3,26 @@
     <th scope="col">Título</th>
     <th scope="col">Autor</th>
     <th scope="col">ISBN</th>
+    <th scope="col">Ação</th>
   </thead>
   <tbody>
     @forelse($livros as $livro)
         <tr>
             <td>{{ $livro->titulo ?? '' }}</td>
             <td>{{ $livro->autor ?? '' }}</td>
+            <td class="isbn">{{ $livro->isbn ?? '' }}</td>
             <td>
-                <a href="/livros-ricardo/{{ $livro->isbn ?? '' }}">
-                    {{ $livro->isbn ?? '' }}
+                <a class="btn btn-primary" href="/livros-ricardo/{{ $livro->id ?? '' }}">
+                    Ver
                 </a>
+                <a class="btn btn-warning" href="/livros-ricardo/{{ $livro->id ?? '' }}/edit">
+                    Editar
+                </a>
+                <form action="/livros-ricardo/{{$livro->id}}" method="post" class="d-inline-block">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" onclick="return confirm('Tem certeza?');" class="btn btn-danger ">Deletar</button>
+                </form>
             </td>
         </tr>
     @empty
