@@ -14,9 +14,9 @@ use App\Http\Controllers\LivroVictorController;
 
 Route::resource('livros', LivroController::class);
 
-Route::get('/livrogabrielas', [LivroGabrielaController::class, 'index']);
+Route::resource('livrogabrielas', LivroGabrielaController::class);
 
-Route::get('/livrogabrielas/{isbn}',[LivroGabrielaController::class,'show']);
+
 Route::get('/livros/{isbn}',[LivroController::class,'show']);
 
 Route::get('/livrossaotome',[LivroControllerSaotome::class,'index']);

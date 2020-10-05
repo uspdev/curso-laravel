@@ -16,7 +16,7 @@ class CreateLivroGabrielasTable extends Migration
         Schema::create('livro_gabrielas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('titulo');
+	    $table->string('titulo');
             $table->string('autor')->nullable();
             $table->string('isbn');
         });
