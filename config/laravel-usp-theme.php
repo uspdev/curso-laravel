@@ -36,8 +36,12 @@ return [
     'login_url' => config('app.url') . '/login',
     'menu' => [
         [
-            'text' => '<i class="fas fa-home"></i> Item 1',
-            'url' => config('app.url') . '/item1',
+            'text' => '<i class="fas fa-home"></i> Home',
+            'url' => config('app.url') . '/livrossaotome',
+        ],
+        [
+            'text' => 'Cadastrar livro',
+            'url' => config('app.url') . '/livrossaotome/create',
         ],
         [
             'text' => 'Acervo',
@@ -48,7 +52,7 @@ return [
             'url' => config('app.url') . '/item3',
             'can' => 'admin',
         ],
-        [
+        /*/[
             'text' => 'SubMenu1',
             'submenu' => $submenu1,
         ],
@@ -57,6 +61,7 @@ return [
             'submenu' => $submenu2,
             'can' => 'admin',
         ],
+        /*/
     ],
     'right_menu' => [
         [

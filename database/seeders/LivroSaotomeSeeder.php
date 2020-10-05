@@ -14,12 +14,12 @@ class LivroSaotomeSeeder extends Seeder
      */
     public function run()
     {
-        $livro = [
+        $livroSaotome = [
             'titulo' => "Crime e Castigo",
             'autor'  => "Fiódor Dostoiéviski",
             'isbn'   => "9780075535744"
         ];
-        LivroSaotome::create($livro);
+        LivroSaotome::create($livroSaotome);
         LivroSaotome::factory(150)->create();
     }
 }

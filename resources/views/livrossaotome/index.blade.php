@@ -5,7 +5,7 @@ Index Livros
 @endsection
 
 @section('content')
-@forelse($livros as $livro)
+@forelse($livrosSaotome as $livroSaotome)
 @include('livrossaotome.partials.fields')
 @empty
 Não há livros cadastrados no sistema.
