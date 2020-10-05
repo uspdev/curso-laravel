@@ -40,9 +40,8 @@ return [
             'url' => config('app.url') . '/item1',
         ],
         [
-            'text' => 'Item 2',
-            'url' => config('app.url') . '/item2',
-            'can' => '',
+            'text' => 'Acervo',
+            'url' => config('') . '/livrolau',
         ],
         [
             'text' => 'Item 3',
