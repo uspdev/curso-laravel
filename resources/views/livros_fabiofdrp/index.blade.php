@@ -1,10 +1,10 @@
-@extends('mainVictor')
+@extends('main')
 
 @section('content')
 
-@forelse($livrosvictor as $livrovictor)
+@forelse($livros as $livro)
 
-@include('livrosvictor.partials.fields')
+@include('livros_fabiofdrp.partials.fields')
 <br>
 @empty
   Não há livros cadastrados nesses sistema ainda!

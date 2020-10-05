@@ -10,8 +10,16 @@
         <li class="list-group-item">Autor: {{ $livro->autor }}</li>
     @endif
     @if ($livro->isbn !== '')
-        <li class="list-group-item">ISBN: {{ $livro->isbn }}</li>
+        <li class="list-group-item">ISBN:  <span class="isbn">{{ $livro->isbn }}</span></li>
     @endif
 </ul>
+<a href="/livros-ricardo" class="btn btn-success mt-3">Início</a>
 <a href="javascript:history.back(-1)" class="btn btn-dark mt-3">Voltar</a>
+<a class="btn btn-warning mt-3 " href="/livros-ricardo/{{ $livro->id ?? '' }}/edit">Editar</a>
+<form action="/livros-ricardo/{{$livro->id}}" method="post" class="d-inline-block">
+    @csrf
+    @method('delete')
+    <button type="submit" onclick="return confirm('Tem certeza?');" class="btn btn-danger mt-3 ">Deletar</button>
+</form>
+
 @endsection
