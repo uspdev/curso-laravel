@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Livrolau;
+use App\Models\LivroLau;
 
-class LivrolauSeeder extends Seeder
+class LivroLauSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,7 +20,7 @@ class LivrolauSeeder extends Seeder
             'isbn'   => '9788543104652',
         ];
 
-        Livrolau::create($livro);
-        Livrolau::factory(150)->create();
+        LivroLau::create($livro);
+        LivroLau::factory(150)->create();
     }
 }

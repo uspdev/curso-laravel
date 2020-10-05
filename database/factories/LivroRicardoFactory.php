@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Livrolau;
+use App\Models\LivroRicardo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class LivrolauFactory extends Factory
+class LivroRicardoFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Livrolau::class;
+    protected $model = LivroRicardo::class;
 
     /**
      * Define the model's default state.
