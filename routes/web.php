@@ -3,21 +3,24 @@
 use App\Http\Controllers\LivroGabrielaController;
 
 use App\Http\Controllers\LivroController;
-
 use App\Http\Controllers\LivroSaotomeController;
 use App\Http\Controllers\LivroControllerSaotome;
 use App\Http\Controllers\LivroFabioFDRPController;
 use App\Http\Controllers\LivroLauController;
-
 use App\Http\Controllers\LivroRicardoController;
-
 use App\Http\Controllers\LivroMarisaController;
 use App\Http\Controllers\LivroVictorController;
+
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::resource('livros', LivroController::class);
 
 Route::resource('livrogabrielas', LivroGabrielaController::class);
 
+
+Route::get('/livros',[LivroController::class,'index']);
 
 Route::get('/livros/{isbn}',[LivroController::class,'show']);
 
