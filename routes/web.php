@@ -48,3 +48,5 @@ Route::get('/livrosvictor/{isbn}', [LivroVictorController::class,'show']);
 Route::get('/livros_fabiofdrp', [LivroFabioFDRPController::class,'index']);
 Route::get('/livros_fabiofdrp/{isbn}', [LivroFabioFDRPController::class,'show']);
 
+Route::resource('/livros_willEE', LivroWillEEController::class);
+
