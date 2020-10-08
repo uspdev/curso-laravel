@@ -10,6 +10,7 @@ use App\Http\Controllers\LivroLauController;
 use App\Http\Controllers\LivroRicardoController;
 use App\Http\Controllers\LivroMarisaController;
 use App\Http\Controllers\LivroVictorController;
+use App\Http\Controllers\LivroMasakikController;
 
 use App\Http\Controllers\LivroFabiController;
 
@@ -65,3 +66,4 @@ Route::get('/livros_ArthurHDR/{isbn}', [LivroArthurHDRController::class,'show'])
 
 
 
+Route::resource('/livrosmasakik', LivroMasakikController::class);
