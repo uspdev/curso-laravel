@@ -53,11 +53,15 @@ Route::get('/livros_fabiofdrp', [LivroFabioFDRPController::class,'index']);
 Route::get('/livros_fabiofdrp/{isbn}', [LivroFabioFDRPController::class,'show']);
 
 
+Route::resource('/livros_willEE', LivroWillEEController::class);
+
+
 Route::get('/livrosfabi', [LivroFabiController::class,'index']);
 Route::get('/livrosfabi/{isbn}', [LivroFabiController::class,'show']);
 
 Route::resource('livros_ArthurHDR', LivroArthurHDRController::class);
 Route::get('/livros_ArthurHDR', [LivroArthurHDRController::class,'index']);
 Route::get('/livros_ArthurHDR/{isbn}', [LivroArthurHDRController::class,'show']);
+
 
 
