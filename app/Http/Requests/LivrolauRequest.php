@@ -40,6 +40,9 @@ class LivrolauRequest extends FormRequest
     {
         return [
             'isbn.unique' => 'Este ISBN está cadastrado para outro livro',
+            'isbn.required' => 'Campo ISBN obrigatório',
+            'isbn.integer' => 'Campo ISBN deve ser inteiro',
+            'titulo.required' => 'O TÍTULO é obrigatório',
         ];
     }
 
