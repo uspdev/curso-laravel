@@ -3,21 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Livro_9793951;
+use App\Models\LivroArthurHDR;
 
-class Livro_9793951Controller extends Controller
+class LivroArthurHDRController extends Controller
 {
     public function index(){
-        $livros = Livro_9793951::all();
-        return view('livro_9793951.index',[
+        $livros = LivroArthurHDR::all();
+        return view('livro_ArthurHDR.index',[
             'livros' => $livros
         ]);
     }
 
     public function show($isbn){
-        $livro = Livro_9793951::where('isbn', $isbn)->first();
+        $livro = LivroArthurHDR::where('isbn', $isbn)->first();
         if($livro != '')
-        return view('livro_9793951.show', [
+        return view('livro_ArthurHDR.show', [
             'livro' => $livro,
         ]);
         else
