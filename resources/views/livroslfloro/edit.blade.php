@@ -1,4 +1,4 @@
-@extends ('main')
+@extends ('mainlfloro')
 @section ('content')
 <form method="POST" action="/livroslfloro/{{ $livro->id }}">
     @csrf
