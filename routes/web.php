@@ -13,9 +13,10 @@ use App\Http\Controllers\LivroVictorController;
 use App\Http\Controllers\LivroMasakikController;
 
 use App\Http\Controllers\LivroFabiController;
-
 use App\Http\Controllers\LivroArthurHDRController;
 use App\Http\Controllers\LivroMarceloModestoController;
+
+use App\Http\Controllers\LivroTapiaController;
 
 
 Route::get('/', function () {
@@ -26,6 +27,8 @@ Route::resource('livros', LivroController::class);
 
 Route::resource('livrogabrielas', LivroGabrielaController::class);
 
+Route::get('livrostapia', [LivroTapiaController::class, 'index']);
+Route::get('livrostapia/{isbn}', [LivroTapiaController::class, 'show']);
 
 Route::get('/livros',[LivroController::class,'index']);
 
