@@ -23,8 +23,6 @@ use App\Http\Controllers\LivroMarceloModestoController;
 
 use App\Http\Controllers\LivroFernandoController;
 
-use App\Http\Controllers\LivroMarceloModestoController;
-
 use App\Http\Controllers\LivroTapiaController;
 
 Route::get('/', function () {
