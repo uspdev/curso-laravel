@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LivroLeonardoController;
+
 use App\Http\Controllers\LivroGabrielaController;
 
 use App\Http\Controllers\LivroController;
@@ -19,6 +21,10 @@ use App\Http\Controllers\LivroArthurHDRController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/livros_leonardo', [LivroLeonardoController::class, 'index']);
+Route::get('/livros_leonardo/{isbn}', [LivroLeonardoController::class, 'show']);
+
 
 Route::resource('livros', LivroController::class);
 
