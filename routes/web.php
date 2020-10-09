@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\LivroGabrielaController;
-
+use App\Http\Controllers\LivroEBonilhaController;
 use App\Http\Controllers\LivroController;
 use App\Http\Controllers\LivroSaotomeController;
 use App\Http\Controllers\LivroControllerSaotome;
@@ -75,3 +75,5 @@ Route::get('/livros_marcelomodesto/{isbn}', [LivroMarceloModestoController::clas
 
 
 Route::resource('/livrosmasakik', LivroMasakikController::class);
+Route::get('/livros_ebonilha', [LivroEBonilhaController::class, 'index'] );
+Route::get('/livros_ebonilha/{isbn}', [LivroEBonilhaController::class, 'show'] );
