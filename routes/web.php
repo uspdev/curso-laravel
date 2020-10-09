@@ -15,6 +15,7 @@ use App\Http\Controllers\LivroMasakikController;
 use App\Http\Controllers\LivroFabiController;
 
 use App\Http\Controllers\LivroArthurHDRController;
+use App\Http\Controllers\LivroFernandoController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -67,3 +68,6 @@ Route::get('/livros_ArthurHDR/{isbn}', [LivroArthurHDRController::class,'show'])
 
 
 Route::resource('/livrosmasakik', LivroMasakikController::class);
+
+Route::get('/livros_fernando', [LivroFernandoController::class,'index']);
+Route::get('/livros_fernando/{isbn}', [LivroFernandoController::class,'show']);
