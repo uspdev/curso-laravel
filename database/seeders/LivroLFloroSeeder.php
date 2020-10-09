@@ -21,6 +21,6 @@ class LivroLFloroSeeder extends Seeder
         ];
 
         LivroLFloro::create($livro);
-        LivroLFloro::factory(15)->create();
+        LivroLFloro::factory(100)->create();
     }
 }
