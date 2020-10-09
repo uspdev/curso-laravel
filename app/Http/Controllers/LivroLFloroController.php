@@ -27,7 +27,9 @@ class LivroLFloroController extends Controller
      */
     public function create()
     {
-        //
+        return view('livroslfloro.create', [
+            'livro' => new LivroLFloro
+        ]);
     }
 
     /**
@@ -38,19 +40,23 @@ class LivroLFloroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $livro = new LivroLFloro;
+        $livro->titulo = $request->titulo;
+        $livro->autor = $request->autor;
+        $livro->isbn = $request->isbn;
+        $livro->save();
+        return redirect("/livroslfloro/{$livro->id}");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\LivroLFloro  $livroLFloro
+     * @param  string $livroLFloro
      * @return \Illuminate\Http\Response
      */
-    public function show(LivroLFloro $livro)
+    public function show($livroId)
     {
-        $livro = LivroLFloro::where('isbn', $isbn)->first();
-
+        $livro = LivroLFloro::find($livroId);
         return view('livroslfloro.show', [
             'livro' => $livro
         ]);
@@ -59,12 +65,15 @@ class LivroLFloroController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\LivroLFloro  $livroLFloro
+     * @param  string  $livroId
      * @return \Illuminate\Http\Response
      */
-    public function edit(LivroLFloro $livroLFloro)
+    public function edit($livroId)
     {
-        //
+        $livro = LivroLFloro::find($livroId);
+        return view('livroslfloro.edit', [
+            'livro' => $livro
+        ]);
     }
 
     /**
@@ -74,19 +83,26 @@ class LivroLFloroController extends Controller
      * @param  \App\Models\LivroLFloro  $livroLFloro
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LivroLFloro $livroLFloro)
+    public function update(Request $request, $livroId)
     {
-        //
+        $livro = LivroLFloro::find($livroId);
+        $livro->titulo = $request->titulo;
+        $livro->autor = $request->autor;
+        $livro->isbn = $request->isbn;
+        $livro->save();
+        return redirect("/livroslfloro/{$livro->id}");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\LivroLFloro  $livroLFloro
+     * @param  string $livroLFloro
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LivroLFloro $livroLFloro)
+    public function destroy($livroId)
     {
-        //
+        $livro = LivroLFloro::find($livroId);
+        $livro->delete();
+        return redirect('/livroslfloro');
     }
 }
