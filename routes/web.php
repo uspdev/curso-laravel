@@ -13,9 +13,13 @@ use App\Http\Controllers\LivroVictorController;
 use App\Http\Controllers\LivroMasakikController;
 
 use App\Http\Controllers\LivroFabiController;
-
 use App\Http\Controllers\LivroArthurHDRController;
+
 use App\Http\Controllers\LivroFernandoController;
+
+use App\Http\Controllers\LivroMarceloModestoController;
+
+use App\Http\Controllers\LivroTapiaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,6 +29,8 @@ Route::resource('livros', LivroController::class);
 
 Route::resource('livrogabrielas', LivroGabrielaController::class);
 
+Route::get('livrostapia', [LivroTapiaController::class, 'index']);
+Route::get('livrostapia/{isbn}', [LivroTapiaController::class, 'show']);
 
 Route::get('/livros',[LivroController::class,'index']);
 
@@ -65,6 +71,9 @@ Route::resource('livros_ArthurHDR', LivroArthurHDRController::class);
 Route::get('/livros_ArthurHDR', [LivroArthurHDRController::class,'index']);
 Route::get('/livros_ArthurHDR/{isbn}', [LivroArthurHDRController::class,'show']);
 
+
+Route::get('/livros_marcelomodesto', [LivroMarceloModestoController::class,'index']);
+Route::get('/livros_marcelomodesto/{isbn}', [LivroMarceloModestoController::class,'show']);
 
 
 Route::resource('/livrosmasakik', LivroMasakikController::class);
