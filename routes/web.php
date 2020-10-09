@@ -58,8 +58,6 @@ Route::get('/livrosmarisa/{isbn}', [LivroMarisaController::class, 'show']);
 
 
 Route::resource('livrosvictor', LivroVictorController::class);
-Route::get('/livrosvictor', [LivroVictorController::class, 'index']);
-Route::get('/livrosvictor/{isbn}', [LivroVictorController::class, 'show']);
 
 Route::get('/livros_fabiofdrp', [LivroFabioFDRPController::class, 'index']);
 Route::get('/livros_fabiofdrp/{isbn}', [LivroFabioFDRPController::class, 'show']);
