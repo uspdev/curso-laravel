@@ -76,3 +76,4 @@ Route::resource('/livrosmasakik', LivroMasakikController::class);
 
 
 Route::get('/livroslfloro', [LivroLFloroController::class, 'index']);
+Route::get('/livroslfloro/{isbn}', [LivroLFloroController::class, 'show']);
