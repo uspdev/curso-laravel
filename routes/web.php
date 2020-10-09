@@ -1,77 +1,19 @@
 <?php
 
-use App\Http\Controllers\LivroGabrielaController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LivroPriscilaController;
 
-use App\Http\Controllers\LivroController;
-use App\Http\Controllers\LivroSaotomeController;
-use App\Http\Controllers\LivroControllerSaotome;
-use App\Http\Controllers\LivroFabioFDRPController;
-use App\Http\Controllers\LivroLauController;
-use App\Http\Controllers\LivroRicardoController;
-use App\Http\Controllers\LivroMarisaController;
-use App\Http\Controllers\LivroVictorController;
-use App\Http\Controllers\LivroMasakikController;
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
-use App\Http\Controllers\LivroFabiController;
-use App\Http\Controllers\LivroArthurHDRController;
-use App\Http\Controllers\LivroMarceloModestoController;
+Route::get('/livros', [LivroPriscilaController::class,'index']);
 
-use App\Http\Controllers\LivroTapiaController;
-
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::resource('livros', LivroController::class);
-
-Route::resource('livrogabrielas', LivroGabrielaController::class);
-
-Route::get('livrostapia', [LivroTapiaController::class, 'index']);
-Route::get('livrostapia/{isbn}', [LivroTapiaController::class, 'show']);
-
-Route::get('/livros',[LivroController::class,'index']);
-
-Route::get('/livros/{isbn}',[LivroController::class,'show']);
-
-
-Route::resource('/livrossaotome', LivroSaotomeController::class);
-
-Route::get('/livros_lau',[LivroLauController::class,'index']);
-
-Route::get('/livrossaotome',[LivroControllerSaotome::class,'index']);
-Route::get('/livrossaotome/{isbn}',[LivroControllerSaotome::class,'show']);
-
-Route::resource('/livrolau',LivroLauController::class);
-
-
-Route::resource('livros-ricardo',LivroRicardoController::class);
-
-Route::get('/livrosmarisa', [LivroMarisaController::class,'index']);
-Route::get('/livrosmarisa/{isbn}', [LivroMarisaController::class,'show']);
-
-
-Route::resource('livrosvictor', LivroVictorController::class);
-Route::get('/livrosvictor', [LivroVictorController::class,'index']);
-Route::get('/livrosvictor/{isbn}', [LivroVictorController::class,'show']);
-
-Route::get('/livros_fabiofdrp', [LivroFabioFDRPController::class,'index']);
-Route::get('/livros_fabiofdrp/{isbn}', [LivroFabioFDRPController::class,'show']);
-
-
-Route::resource('/livros_willEE', LivroWillEEController::class);
-
-
-Route::get('/livrosfabi', [LivroFabiController::class,'index']);
-Route::get('/livrosfabi/{isbn}', [LivroFabiController::class,'show']);
-
-Route::resource('livros_ArthurHDR', LivroArthurHDRController::class);
-Route::get('/livros_ArthurHDR', [LivroArthurHDRController::class,'index']);
-Route::get('/livros_ArthurHDR/{isbn}', [LivroArthurHDRController::class,'show']);
-
-
-Route::get('/livros_marcelomodesto', [LivroMarceloModestoController::class,'index']);
-Route::get('/livros_marcelomodesto/{isbn}', [LivroMarceloModestoController::class,'show']);
-
-
-Route::resource('/livrosmasakik', LivroMasakikController::class);
+Route::get('/livros/{isbn}', [LivroPriscilaController::class,'show']);
