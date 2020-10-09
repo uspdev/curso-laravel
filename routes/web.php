@@ -11,6 +11,7 @@ use App\Http\Controllers\LivroRicardoController;
 use App\Http\Controllers\LivroMarisaController;
 use App\Http\Controllers\LivroVictorController;
 use App\Http\Controllers\LivroMasakikController;
+use App\Http\Controllers\LivroMarceloDaudtController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -50,3 +51,6 @@ Route::get('/livros_fabiofdrp', [LivroFabioFDRPController::class,'index']);
 Route::get('/livros_fabiofdrp/{isbn}', [LivroFabioFDRPController::class,'show']);
 
 Route::resource('/livrosmasakik', LivroMasakikController::class);
+
+Route::get('/livros_MarceloDaudt', [LivroMarceloDaudtController::class,'index']);
+Route::get('/livros_MarceloDaudt/{isbn}', [LivroMarceloDaudtController::class, 'show']);
