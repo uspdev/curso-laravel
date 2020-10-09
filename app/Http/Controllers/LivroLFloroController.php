@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LivroLFloro;
 use Illuminate\Http\Request;
 
 class LivroLFloroController extends Controller
 {
     public function index()
     {
-        return view('livroslfloro.index');
+        $livros = LivroLFloro::all();
+        return view('livroslfloro.index', [
+            'livros' => $livros
+        ]);
     }
 
     public function show($isbn)
     {
-        if ($isbn == '9780195106817') {
-            $livro =  "Quicas Borba - Machado de Assis";
-        } else {
-            $livro =  "Livro não identificado!";
-        }
+        $livro = LivroLFloro::where('isbn', $isbn)->first();
 
         return view('livroslfloro.show', [
             'livro' => $livro
