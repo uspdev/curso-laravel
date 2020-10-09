@@ -29,6 +29,6 @@ class CreateLivroMarceloDaudtsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('livro_marcelo_daudt');
+        Schema::dropIfExists('livro_marcelo_daudts');
     }
 }
