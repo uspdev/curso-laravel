@@ -8,15 +8,19 @@ class LivroLFloroController extends Controller
 {
     public function index()
     {
-        return "Não há livros cadastrados nesses sistema ainda!";
+        return view('livroslfloro.index');
     }
 
     public function show($isbn)
     {
         if ($isbn == '9780195106817') {
-            return "Quicas Borba - Machado de Assis";
+            $livro =  "Quicas Borba - Machado de Assis";
         } else {
-            return "Livro não identificado!";
+            $livro =  "Livro não identificado!";
         }
+
+        return view('livroslfloro.show', [
+            'livro' => $livro
+        ]);
     }
 }
