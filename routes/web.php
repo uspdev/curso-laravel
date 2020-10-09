@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LivroPriscilaController;
+
 use App\Http\Controllers\LivroGabrielaController;
 use App\Http\Controllers\LivroEBonilhaController;
 use App\Http\Controllers\LivroController;
@@ -82,3 +85,7 @@ Route::get('/livros_ebonilha/{isbn}', [LivroEBonilhaController::class, 'show'] )
 
 Route::get('/livros_fernando', [LivroFernandoController::class,'index']);
 Route::get('/livros_fernando/{isbn}', [LivroFernandoController::class,'show']);
+
+Route::get('/livros_priscila', [LivroPriscilaController::class,'index']);
+
+Route::get('/livros_priscila/{isbn}', [LivroPriscilaController::class,'show']);
