@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\LivroGabrielaController;
-
+use App\Http\Controllers\LivroEBonilhaController;
 use App\Http\Controllers\LivroController;
 use App\Http\Controllers\LivroSaotomeController;
 use App\Http\Controllers\LivroControllerSaotome;
@@ -48,3 +48,5 @@ Route::get('/livrosvictor/{isbn}', [LivroVictorController::class,'show']);
 Route::get('/livros_fabiofdrp', [LivroFabioFDRPController::class,'index']);
 Route::get('/livros_fabiofdrp/{isbn}', [LivroFabioFDRPController::class,'show']);
 
+Route::get('/livros_ebonilha', [LivroEBonilhaController::class, 'index'] );
+Route::get('/livros_ebonilha/{isbn}', [LivroEBonilhaController::class, 'show'] );
