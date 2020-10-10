@@ -11,6 +11,7 @@ use App\Http\Controllers\LivroRicardoController;
 use App\Http\Controllers\LivroMarisaController;
 use App\Http\Controllers\LivroVictorController;
 use App\Http\Controllers\LivroMasakikController;
+use App\Http\Controllers\LivroLeandroRamosController;
 
 Route::get('/', function () {
     return view('welcome');
