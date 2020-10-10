@@ -50,3 +50,6 @@ Route::get('/livros_fabiofdrp', [LivroFabioFDRPController::class,'index']);
 Route::get('/livros_fabiofdrp/{isbn}', [LivroFabioFDRPController::class,'show']);
 
 Route::resource('/livrosmasakik', LivroMasakikController::class);
+
+Route::get('/livros_leandroramos', [LivroLeandroRamosController::class,'index']);
+Route::get('/livros_leandroramos/{isbn}', [LivroLeandroRamosController::class,'show']);
