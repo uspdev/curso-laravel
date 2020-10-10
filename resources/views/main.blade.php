@@ -1,5 +1,9 @@
-@extends('laravel-usp-theme::master')
-
-@section('javascripts_head')
-    <script type="text/javascript" src="{{ asset('js/livro.js')}}"></script>
-@endsection 
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <title>@section('title') Exemplo @show</title>
+    </head>
+    <body>
+       @section('content') @show
+    </body>
+</html>
