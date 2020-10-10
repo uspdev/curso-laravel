@@ -14,17 +14,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        $this->call([
+        $this->call([            
             LivroSeeder::class,
-            LivroSaotomeSeeder::class,
-            LivroGabrielaSeeder::class,
-            LivroMarisaSeeder::class,
-            LivroVictorSeeder::class,
-            LivroRicardoSeeder::class,
-            LivroMarisaSeeder::class,
-            LivroLauSeeder::class,
-            LivroFabioFDRPSeeder::class,
-            LivromasakikSeeder::class,
+            LivroDenisSeeder::class
         ]);
     }
 }
