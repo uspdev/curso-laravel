@@ -22,7 +22,9 @@ class LivroLeandroRamosFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'titulo' => $this->faker->sentence(3),
+            'isbn'   => $this->faker->ean13(),
+            'autor'  => $this->faker->name
         ];
     }
 }
