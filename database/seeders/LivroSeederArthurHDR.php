@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Livro_9793951;
 
-class LivroSeeder_9793951 extends Seeder
+class LivroSeederArthurHDR extends Seeder
 {
     /**
      * Run the database seeds.

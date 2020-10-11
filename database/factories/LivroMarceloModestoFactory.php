@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Livro_9793951;
+use App\Models\LivroMarceloModesto;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class LivroArthurHDRFactory extends Factory
+class LivroMarceloModestoFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Livro_9793951::class;
+    protected $model = LivroMarceloModesto::class;
 
     /**
      * Define the model's default state.
@@ -23,8 +23,8 @@ class LivroArthurHDRFactory extends Factory
     {
         return [
             'titulo' => $this->faker->sentence(3),
-            'autor' => $this->faker->name,
-            'isbn' => $this->faker->ean13()
+            'autor'  => $this->faker->name,
+            'isbn'   => $this->faker->ean13(),
         ];
     }
 }

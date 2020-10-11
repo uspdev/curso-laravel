@@ -26,6 +26,11 @@ class DatabaseSeeder extends Seeder
             LivroLauSeeder::class,
             LivroFabioFDRPSeeder::class,
             LivromasakikSeeder::class,
+            LivroMarceloDaudtSeeder::class,
+            LivroLFloroSeeder::class,
+            LivroEbonilhaSeeder::class,
+            LivroFernandoSeeder::class,
+            LivroWillSeeder::class,
         ]);
     }
 }
