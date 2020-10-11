@@ -14,7 +14,10 @@ class LivroLeandroRamosController extends Controller
      */
     public function index()
     {
-        //
+        $livros = LivroLeandroRamos::all();
+        return view('livros_leandroramos.index',[
+            'livros' => $livros
+        ]);
     }
 
     /**
@@ -46,7 +49,10 @@ class LivroLeandroRamosController extends Controller
      */
     public function show(LivroLeandroRamos $livroLeandroRamos)
     {
-        //
+        $livro = LivroLeandroRamos::where('isbn', $isbn)->first();
+        return view('livros_leandroramos.show', [
+            'livro' => $livro,
+        ]);
     }
 
     /**
