@@ -7,8 +7,6 @@ use App\Http\Controllers\LivroGabrielaController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LivroPriscilaController;
-
-use App\Http\Controllers\LivroGabrielaController;
 use App\Http\Controllers\LivroEBonilhaController;
 use App\Http\Controllers\LivroController;
 use App\Http\Controllers\LivroSaotomeController;
@@ -18,6 +16,7 @@ use App\Http\Controllers\LivroLauController;
 use App\Http\Controllers\LivroRicardoController;
 use App\Http\Controllers\LivroMarisaController;
 use App\Http\Controllers\LivroVictorController;
+use App\Http\Controllers\LivroFredController;
 use App\Http\Controllers\LivroMasakikController;
 use App\Http\Controllers\LivroDanielController;
 use App\Http\Controllers\LivroLeandroRamosController;
@@ -101,6 +100,9 @@ Route::get('/livros_daniel/{isbn}', [LivroDanielController::class,'show']);
 
 Route::get('/livros_leandroramos', [LivroLeandroRamosController::class,'index']);
 Route::get('/livros_leandroramos/{isbn}', [LivroLeandroRamosController::class,'show']);
+Route::resource('/livroslfloro', LivroLFloroController::class);
+//Route::get('/livroslfloro', [LivroLFloroController::class, 'index']);
+//Route::get('/livroslfloro/{isbn}', [LivroLFloroController::class, 'show']);
 
 Route::get('/livros_MarceloDaudt', [LivroMarceloDaudtController::class,'index']);
 Route::get('/livros_MarceloDaudt/{isbn}', [LivroMarceloDaudtController::class, 'show']);
@@ -108,11 +110,14 @@ Route::get('/livros_MarceloDaudt/{isbn}', [LivroMarceloDaudtController::class, '
 Route::get('/livroslfloro', [LivroLFloroController::class, 'index']);
 Route::get('/livroslfloro/{isbn}', [LivroLFloroController::class, 'show']);
 
-Route::get('/livros_ebonilha', [LivroEBonilhaController::class, 'index'] );
-Route::get('/livros_ebonilha/{isbn}', [LivroEBonilhaController::class, 'show'] );
+Route::get('/livros_ebonilha', [LivroEBonilhaController::class, 'index']);
+Route::get('/livros_ebonilha/{isbn}', [LivroEBonilhaController::class, 'show']);
 
-Route::get('/livros_fernando', [LivroFernandoController::class,'index']);
-Route::get('/livros_fernando/{isbn}', [LivroFernandoController::class,'show']);
+Route::get('/livros_fernando', [LivroFernandoController::class, 'index']);
+Route::get('/livros_fernando/{isbn}', [LivroFernandoController::class, 'show']);
+
+Route::get('/livros_priscila', [LivroPriscilaController::class, 'index']);
+Route::get('/livros_priscila/{isbn}', [LivroPriscilaController::class, 'show']);
 
 Route::get('/livros_priscila', [LivroPriscilaController::class,'index']);
 Route::get('/livros_priscila/{isbn}', [LivroPriscilaController::class,'show']);
@@ -120,3 +125,5 @@ Route::get('/livros_priscila/{isbn}', [LivroPriscilaController::class,'show']);
 Route::get('/livro_wills', [LivroWillController::class, 'index']);
 Route::get('/livro_wills/{livro}', [LivroWillController::class, 'show'])->name('will.show');
 
+Route::get('/livrosfred',[LivroFredController::class,'index']);
+Route::get('/livrosfred/{isbn}',[LivroFredController::class,'show']);
