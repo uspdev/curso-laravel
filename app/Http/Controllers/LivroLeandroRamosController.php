@@ -27,7 +27,7 @@ class LivroLeandroRamosController extends Controller
      */
     public function create()
     {
-        //
+        return view('livros_leandroramos.create');
     }
 
     /**
@@ -38,7 +38,14 @@ class LivroLeandroRamosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $livro = new LivroLeandroRamos;
+        $livro->titulo = $request->titulo;
+        $livro->autor = $request->autor;
+        $livro->isbn = $request->isbn;
+        
+        $livro->save();
+        
+        return redirect("/livros_leandroramos/{$livro->id}");
     }
 
     /**
