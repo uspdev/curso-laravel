@@ -1,5 +1,10 @@
 <?php
 
+
+use App\Http\Controllers\LivroLeonardoController;
+
+use App\Http\Controllers\LivroGabrielaController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LivroPriscilaController;
 
@@ -33,6 +38,10 @@ use App\Http\Controllers\LivroWillController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/livros_leonardo', [LivroLeonardoController::class, 'index']);
+Route::get('/livros_leonardo/{isbn}', [LivroLeonardoController::class, 'show']);
+
 
 Route::resource('livros', LivroController::class);
 
