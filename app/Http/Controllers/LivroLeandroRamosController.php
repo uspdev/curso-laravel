@@ -102,6 +102,7 @@ class LivroLeandroRamosController extends Controller
      */
     public function destroy(LivroLeandroRamos $livro)
     {
-        //
+        $livro->delete();
+        return redirect('/livros_leandroramos');
     }
 }
