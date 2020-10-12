@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LivroSaotome;
 use Illuminate\Http\Request;
+use App\Http\Requests\LivroSaotomeRequest;
 
 class LivroSaotomeController extends Controller
 {
@@ -33,13 +34,11 @@ class LivroSaotomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LivroSaotomeRequest $request)
     {
-        $livroSaotome = new LivroSaotome;
-        $livroSaotome->titulo = $request->titulo;
-        $livroSaotome->autor = $request->autor;
-        $livroSaotome->isbn = $request->isbn;
-        $livroSaotome->save();
+        $validated = $request->validated();
+        $livroSaotome = LivroSaotome::create($validated);
+        request()->session()->flash('alert-info', 'Livro cadastrado com sucesso');
         # return redirect("/livrossaotome/{$livroSaotome->id}");
         return redirect("/livrossaotome");
     }
@@ -63,7 +62,7 @@ class LivroSaotomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(LivroSaotome $livrossaotome) // especificamente este precisa ser o mesmo nome da rota
-    {
+    { 
         return view('livrossaotome.edit', [
             'livroSaotome' => $livrossaotome
         ]);
@@ -76,12 +75,11 @@ class LivroSaotomeController extends Controller
      * @param  \App\Models\LivroSaotome  $livroSaotome
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LivroSaotome $livrossaotome)
-    {
-        $livrossaotome->titulo = $request->titulo;
-        $livrossaotome->autor = $request->autor;
-        $livrossaotome->isbn = $request->isbn;
-        $livrossaotome->save();
+    public function update(LivroSaotomeRequest $request, LivroSaotome $livrossaotome)
+    {   
+        $validated = $request->validated();
+        $livrossaotome->update($validated);
+        request()->session()->flash('alert-info', 'Livro atualizado com sucesso');
         return redirect("/livrossaotome/{$livrossaotome->id}");
     }
 
