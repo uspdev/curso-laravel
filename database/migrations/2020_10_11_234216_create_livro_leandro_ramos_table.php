@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLivrosLeandroRamosTable extends Migration
+class CreateLivroLeandroRamosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateLivrosLeandroRamosTable extends Migration
      */
     public function up()
     {
-        Schema::create('livros_leandro_ramos', function (Blueprint $table) {
+        Schema::create('livro_leandro_ramos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('titulo');
