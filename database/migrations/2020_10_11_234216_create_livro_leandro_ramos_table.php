@@ -13,7 +13,7 @@ class CreateLivrosLeandroRamosTable extends Migration
      */
     public function up()
     {
-        Schema::create('livros_leandroramos', function (Blueprint $table) {
+        Schema::create('livros_leandro_ramos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('titulo');
@@ -29,6 +29,6 @@ class CreateLivrosLeandroRamosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('livros_leandroramos');
+        Schema::dropIfExists('livros_leandro_ramos');
     }
 }
