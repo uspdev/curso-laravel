@@ -54,9 +54,8 @@ class LivroLeandroRamosController extends Controller
      * @param  \App\Models\LivroLeandroRamos  $livroLeandroRamos
      * @return \Illuminate\Http\Response
      */
-    public function show(LivroLeandroRamos $livroLeandroRamos)
+    public function show(LivroLeandroRamos $livro)
     {
-        $livro = LivroLeandroRamos::where('isbn', $isbn)->first();
         return view('livros_leandroramos.show', [
             'livro' => $livro,
         ]);
@@ -68,7 +67,7 @@ class LivroLeandroRamosController extends Controller
      * @param  \App\Models\LivroLeandroRamos  $livroLeandroRamos
      * @return \Illuminate\Http\Response
      */
-    public function edit(LivroLeandroRamos $livroLeandroRamos)
+    public function edit(LivroLeandroRamos $livro)
     {
         //
     }
@@ -80,7 +79,7 @@ class LivroLeandroRamosController extends Controller
      * @param  \App\Models\LivroLeandroRamos  $livroLeandroRamos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LivroLeandroRamos $livroLeandroRamos)
+    public function update(Request $request, LivroLeandroRamos $livro)
     {
         //
     }
@@ -91,7 +90,7 @@ class LivroLeandroRamosController extends Controller
      * @param  \App\Models\LivroLeandroRamos  $livroLeandroRamos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LivroLeandroRamos $livroLeandroRamos)
+    public function destroy(LivroLeandroRamos $livro)
     {
         //
     }

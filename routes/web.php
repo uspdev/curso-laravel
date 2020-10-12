@@ -98,7 +98,9 @@ Route::resource('/livrosmasakik', LivroMasakikController::class);
 Route::get('/livros_daniel', [LivroDanielController::class,'index']);
 Route::get('/livros_daniel/{isbn}', [LivroDanielController::class,'show']);
 
-Route::resource('/livros_leandroramos', LivroLeandroRamosController::class);
+Route::resource('/livros_leandroramos', LivroLeandroRamosController::class)->parameters([
+    'livros_leandroramos' => 'livro',
+]);
 
 Route::resource('/livroslfloro', LivroLFloroController::class);
 //Route::get('/livroslfloro', [LivroLFloroController::class, 'index']);
