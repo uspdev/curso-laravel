@@ -40,12 +40,13 @@ class LivroLeandroRamosController extends Controller
      */
     public function store(Request $request)
     {
-        $livro = new LivroLeandroRamos;
-        $livro->titulo = $request->titulo;
-        $livro->autor = $request->autor;
-        $livro->isbn = $request->isbn;
+        $request->validate([
+          'titulo' => 'required',
+          'autor' => 'required',
+          'isbn' => 'required|integer',
+        ]);
         
-        $livro->save();
+        $livro = LivroLeandroRamos::create($request->all());
         
         return redirect("/livros_leandroramos/{$livro->id}");
     }
@@ -85,11 +86,13 @@ class LivroLeandroRamosController extends Controller
      */
     public function update(Request $request, LivroLeandroRamos $livro)
     {
-        $livro->titulo = $request->titulo;
-        $livro->autor = $request->autor;
-        $livro->isbn = $request->isbn;
+        $request->validate([
+          'titulo' => 'required',
+          'autor' => 'required',
+          'isbn' => 'required|integer',
+        ]);
         
-        $livro->save();
+        $livro->update($request->all());
         
         return redirect("/livros_leandroramos/{$livro->id}");
     }
