@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             LivroEbonilhaSeeder::class,
             LivroFernandoSeeder::class,
             LivroWillSeeder::class,
+            LivroAlessandroOliveiraSeeder::class,
         ]);
     }
 }
