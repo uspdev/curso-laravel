@@ -69,7 +69,7 @@ class LivroLeandroRamosController extends Controller
      */
     public function edit(LivroLeandroRamos $livro)
     {
-        //
+        return view('livros_leandroramos.edit');
     }
 
     /**
@@ -81,7 +81,13 @@ class LivroLeandroRamosController extends Controller
      */
     public function update(Request $request, LivroLeandroRamos $livro)
     {
-        //
+        $livro->titulo = $request->titulo;
+        $livro->autor = $request->autor;
+        $livro->isbn = $request->isbn;
+        
+        $livro->save();
+        
+        return redirect("/livros_leandroramos/{$livro->id}");
     }
 
     /**
