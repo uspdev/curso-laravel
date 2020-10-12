@@ -27,7 +27,9 @@ class LivroLeandroRamosController extends Controller
      */
     public function create()
     {
-        return view('livros_leandroramos.create');
+        return view('livros_leandroramos.create', [
+            'livro' => new LivroLeandroRamos,
+        ]);
     }
 
     /**
@@ -69,7 +71,9 @@ class LivroLeandroRamosController extends Controller
      */
     public function edit(LivroLeandroRamos $livro)
     {
-        return view('livros_leandroramos.edit');
+        return view('livros_leandroramos.edit', [
+            'livro' => $livro,
+        ]);
     }
 
     /**
