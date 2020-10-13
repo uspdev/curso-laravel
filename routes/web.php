@@ -33,6 +33,7 @@ use App\Http\Controllers\LivroFernandoController;
 use App\Http\Controllers\LivroTapiaController;
 
 use App\Http\Controllers\LivroWillController;
+use App\Http\Controllers\LivroEdmarController;
 
 use App\Http\Controllers\LivroAlessandroOliveiraController;
 
@@ -134,5 +135,10 @@ Route::get('/livro_wills/{livro}', [LivroWillController::class, 'show'])->name('
 Route::get('/livrosfred',[LivroFredController::class,'index']);
 Route::get('/livrosfred/{isbn}',[LivroFredController::class,'show']);
 
+
+Route::get('/livroedmar',[LivroEdmarController::class,'index']);
+Route::get('/livroedmar/{isbn}',[LivroEdmarController::class,'show']);
+
 Route::get('/livros_alessandrooliveira', [LivroAlessandroOliveiraController::class, 'index']);
 Route::get('/livros_alessandrooliveira/{livro}', [LivroAlessandroOliveiraController::class, 'show']);
+
