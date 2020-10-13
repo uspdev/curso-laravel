@@ -4,8 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLivroDanielsTable extends Migration {
-
+class CreateLivroDanielsTable extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -31,5 +31,4 @@ class CreateLivroDanielsTable extends Migration {
     {
         Schema::dropIfExists('livro_daniels');
     }
-
 }
