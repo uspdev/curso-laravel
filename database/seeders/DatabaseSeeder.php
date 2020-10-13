@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
+            UserSeeder::class,
             LivroSeeder::class,
             LivroLeonardoSeeder::class,
             LivroSaotomeSeeder::class,
@@ -31,7 +32,7 @@ class DatabaseSeeder extends Seeder
             LivroEbonilhaSeeder::class,
             LivroFernandoSeeder::class,
             LivroWillSeeder::class,
-            LivroAlessandroOliveiraSeeder::class,
+            LivroAlessandroOliveiraSeeder::class
         ]);
     }
 }

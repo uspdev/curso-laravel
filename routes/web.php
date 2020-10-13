@@ -1,6 +1,7 @@
 <?php
 
-
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LivroLeonardoController;
 
 use App\Http\Controllers\LivroGabrielaController;
@@ -37,15 +38,14 @@ use App\Http\Controllers\LivroEdmarController;
 
 use App\Http\Controllers\LivroAlessandroOliveiraController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [IndexController::class, 'index']);
 
 Route::get('/livros_leonardo', [LivroLeonardoController::class, 'index']);
 Route::get('/livros_leonardo/{isbn}', [LivroLeonardoController::class, 'show']);
 
 
 Route::resource('livros', LivroController::class);
+
 
 Route::resource('livrogabrielas', LivroGabrielaController::class);
 
@@ -142,3 +142,9 @@ Route::get('/livroedmar/{isbn}',[LivroEdmarController::class,'show']);
 Route::get('/livros_alessandrooliveira', [LivroAlessandroOliveiraController::class, 'index']);
 Route::get('/livros_alessandrooliveira/{livro}', [LivroAlessandroOliveiraController::class, 'show']);
 
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [LoginController::class, 'login']);
+Route::post('logout', [LoginController::class, 'logout']);
+
+Route::get('/login/senhaunica', [LoginController::class, 'redirectToProvider']);
+Route::get('/logincallback', [LoginController::class, 'handleProviderCallback']);
