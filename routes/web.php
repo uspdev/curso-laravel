@@ -134,5 +134,4 @@ Route::get('/livro_wills/{livro}', [LivroWillController::class, 'show'])->name('
 Route::get('/livrosfred',[LivroFredController::class,'index']);
 Route::get('/livrosfred/{isbn}',[LivroFredController::class,'show']);
 
-Route::get('/livros_alessandrooliveira', [LivroAlessandroOliveiraController::class, 'index']);
-Route::get('/livros_alessandrooliveira/{livro}', [LivroAlessandroOliveiraController::class, 'show']);
+Route::resource('/livros_alessandrooliveira', LivroAlessandroOliveiraController::class);
