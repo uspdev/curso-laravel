@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LivroVictor;
 use Illuminate\Http\Request;
+use App\Http\Requests\LivroVictorRequest;
 
 class LivroVictorController extends Controller
 {
@@ -37,13 +38,11 @@ class LivroVictorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LivroVictorRequest $request)
     {
-        $livrosvictor = new LivroVictor;
-        $livrosvictor->titulo = $request->titulo;
-        $livrosvictor->autor = $request->autor;
-        $livrosvictor->isbn = $request->isbn;
-        $livrosvictor->save();
+        $validated = $request->validated();
+        $livrosvictor = LivroVictor::create($validated);
+        request()->session()->flash('alert-info','Livro cadastrado com sucesso');
         return redirect("/livrosvictor/{$livrosvictor->id}");
     }
 
@@ -76,12 +75,11 @@ class LivroVictorController extends Controller
      * @param  \App\Models\LivroVictor  $livroVictor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LivroVictor $livrosvictor)
+    public function update(LivroVictorRequest $request, LivroVictor $livrosvictor)
     {
-        $livrosvictor->titulo = $request->titulo;
-        $livrosvictor->autor = $request->autor;
-        $livrosvictor->isbn = $request->isbn;
-        $livrosvictor->update();
+        $validated = $request->validated();
+        $livrosvictor->update($validated);
+        request()->session()->flash('alert-info','Livro atualizado com sucesso');
         return redirect("/livrosvictor/{$livrosvictor->id}");
     }
 
