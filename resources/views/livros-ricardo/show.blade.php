@@ -12,6 +12,9 @@
     @if ($livro->isbn !== '')
         <li class="list-group-item">ISBN:  <span class="isbn">{{ $livro->isbn }}</span></li>
     @endif
+    @if ($livro->user != null)
+        <li class="list-group-item">Cadastrado por:  {{ $livro->user->name }}</li>
+    @endif
 </ul>
 <a href="/livros-ricardo" class="btn btn-success mt-3">Início</a>
 <a href="javascript:history.back(-1)" class="btn btn-dark mt-3">Voltar</a>
