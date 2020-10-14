@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\LivroLFloro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 //use Illuminate\Support\Facades\Validator;
 
 class LivroLFloroController extends Controller
@@ -41,11 +43,17 @@ class LivroLFloroController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'titulo' => 'required',
             'autor' => 'required',
             'isbn' => 'required'
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         $livro = new LivroLFloro;
         $livro->titulo = $request->titulo;
