@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LivroRicardo;
 use Illuminate\Http\Request;
+use App\Http\Requests\LivroRicardoRequest;
 
 class LivroRicardoController extends Controller
 {
@@ -23,15 +24,11 @@ class LivroRicardoController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(LivroRicardoRequest $request)
     {
-        
-        $livro = new LivroRicardo;
-        $livro->titulo = $request->titulo;
-        $livro->autor = $request->autor;
-        $livro->isbn = $request->isbn;
-        $livro->save();
-        #return redirect("/livros-ricardo/{$livro->id}");
+        $validated = $request->validated(); //pega somente os campos validados, que estão dentro da rules
+        $livro = LivroRicardo::create($validated);
+        request()->session()->flash('alert-success','Livro cadastrado com sucesso');
         return redirect("/livros-ricardo");
         
     }
@@ -53,12 +50,11 @@ class LivroRicardoController extends Controller
     }
     
 
-    public function update(Request $request, LivroRicardo $livros_ricardo)
+    public function update(LivroRicardoRequest $request, LivroRicardo $livros_ricardo)
     {
-        $livros_ricardo->titulo = $request->titulo;
-        $livros_ricardo->autor = $request->autor;
-        $livros_ricardo->isbn = $request->isbn;
-        $livros_ricardo->save();
+        $validated = $request->validated();
+        $livros_ricardo->update($validated);
+        request()->session()->flash('alert-success','Livro atualizado com sucesso');
         return redirect("/livros-ricardo/{$livros_ricardo->id}");
     }
 
