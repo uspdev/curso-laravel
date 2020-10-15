@@ -1,5 +1,5 @@
 <ul>
-    <li>{{ $livroandre->titulo ?? '' }}</li>
-    <li>{{ $livroandre->autor  ?? '' }}</li>
-    <li>{{ $livroandre->isbn ?? '' }}</li>
+    <li>{{ $livro->titulo ?? '' }}</li>
+    <li>{{ $livro->autor  ?? '' }}</li>
+    <li>{{ $livro->isbn ?? '' }}</li>
 </ul>
