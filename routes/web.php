@@ -52,5 +52,4 @@ Route::get('/livros_fabiofdrp/{isbn}', [LivroFabioFDRPController::class,'show'])
 
 Route::resource('/livrosmasakik', LivroMasakikController::class);
 
-Route::get('/livros_MarceloDaudt', [LivroMarceloDaudtController::class,'index']);
-Route::get('/livros_MarceloDaudt/{isbn}', [LivroMarceloDaudtController::class, 'show']);
+Route::resource('/livrosMarceloDaudt', LivroMarceloDaudtController::class);
