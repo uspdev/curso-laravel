@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('livro_fernandos.partials.fields')
+@include('livros_fernando.partials.fields')
 <br>
 
 @endsection

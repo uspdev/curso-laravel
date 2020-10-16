@@ -37,15 +37,15 @@ return [
     'menu' => [
         [
             'text' => '<i class="fas fa-home"></i> Home',
-            'url' => config('app.url') . '/livrossaotome',
+            'url' => config('app.url') . '/livros',
         ],
         [
             'text' => 'Cadastrar livro',
-            'url' => config('app.url') . '/livrossaotome/create',
+            'url' => config('app.url') . '/livros/create',
         ],
         [
             'text' => 'Acervo',
-            'url' => config('') . '/livrolau',
+            'url' => config('') . '/livros',
         ],
         [
             'text' => 'Item 3',
