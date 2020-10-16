@@ -1,5 +1,5 @@
 <!-- ###### edit.blade.php ###### -->
-@extends('main')
+@extends('main_alessandrooliveira')
 @section('content')
     <form method="POST" action="/livros_alessandrooliveira/{{ $livro->id }}">
         @csrf

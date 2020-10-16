@@ -1,5 +1,5 @@
 <!-- ###### show.blade.php ###### -->
-@extends('main')
+@extends('main_alessandrooliveira')
 @section('content')
     @include('livros_alessandrooliveira.partials.fields')
 @endsection 
