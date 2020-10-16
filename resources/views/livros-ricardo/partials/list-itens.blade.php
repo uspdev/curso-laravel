@@ -3,6 +3,7 @@
     <th scope="col">Título</th>
     <th scope="col">Autor</th>
     <th scope="col">ISBN</th>
+    <th scope="col">Cadastrado por</th>
     <th scope="col">Ação</th>
   </thead>
   <tbody>
@@ -11,6 +12,7 @@
             <td>{{ $livro->titulo ?? '' }}</td>
             <td>{{ $livro->autor ?? '' }}</td>
             <td class="isbn">{{ $livro->isbn ?? '' }}</td>
+            <td >{{ $livro->user->name ?? 'Não identificado' }}</td>
             <td>
                 <a class="btn btn-primary" href="/livros-ricardo/{{ $livro->id ?? '' }}">
                     Ver
@@ -33,4 +35,10 @@
   </tbody>
   
 </table>
+
+
+
+
+
+
 
