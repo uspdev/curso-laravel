@@ -1,4 +1,4 @@
-@extends ('main')
+@extends ('mainlfloro')
 @section ('content')
 @forelse ($livros as $livro)
 @include ('livroslfloro.partials.fields')

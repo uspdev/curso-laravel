@@ -29,6 +29,6 @@ class CreateLivroWill extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('livro_will');
+        Schema::dropIfExists('livro_wills');
     }
 }

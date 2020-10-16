@@ -29,6 +29,6 @@ class CreateLivroTapiaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('livro_tapia');
+        Schema::dropIfExists('livro_tapias');
     }
 }

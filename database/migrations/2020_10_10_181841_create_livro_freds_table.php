@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLivroMarceloDaudtsTable extends Migration
+class CreateLivroFredsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateLivroMarceloDaudtsTable extends Migration
      */
     public function up()
     {
-        Schema::create('livro_marcelo_daudts', function (Blueprint $table) {
+        Schema::create('livro_freds', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
             $table->string('titulo');
             $table->string('autor')->nullable();
             $table->string('isbn');
-            $table->timestamps();
         });
     }
 
@@ -29,6 +29,6 @@ class CreateLivroMarceloDaudtsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('livro_marcelo_daudt');
+        Schema::dropIfExists('livro_freds');
     }
 }
