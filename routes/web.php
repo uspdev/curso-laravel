@@ -35,6 +35,7 @@ use App\Http\Controllers\LivroFernandoController;
 use App\Http\Controllers\LivroTapiaController;
 
 use App\Http\Controllers\LivroWillController;
+use App\Http\Controllers\LivroGroffController;
 use App\Http\Controllers\LivroEdmarController;
 
 use App\Http\Controllers\LivroAlessandroOliveiraController;
@@ -129,6 +130,9 @@ Route::resource('/livro_priscilas', LivroPriscilaController::class);
 Route::get('/livro_wills', [LivroWillController::class, 'index']);
 Route::get('/livro_wills/{livro}', [LivroWillController::class, 'show'])->name('will.show');
 
+Route::get('/livro_groffs',[LivroGroffController::class,'index']);
+Route::get('/livro_groffs/{isbn}',[LivroGroffController::class,'show']);
+
 Route::get('/livrosfred',[LivroFredController::class,'index']);
 Route::get('/livrosfred/{isbn}',[LivroFredController::class,'show']);
 
@@ -153,3 +157,4 @@ Route::get('/login/senhaunica', [LoginController::class, 'redirectToProvider']);
 Route::get('/logincallback', [LoginController::class, 'handleProviderCallback']);
 
 Route::resource('/livrosMarceloDaudt', LivroMarceloDaudtController::class);
+
