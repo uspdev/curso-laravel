@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LivroPriscilaController;
 use App\Http\Controllers\LivroEBonilhaController;
 use App\Http\Controllers\LivroController;
+use App\Http\Controllers\LivroMicheletController;
 use App\Http\Controllers\LivroSaotomeController;
 use App\Http\Controllers\LivroControllerSaotome;
 use App\Http\Controllers\LivroFabioFDRPController;
@@ -35,9 +36,15 @@ use App\Http\Controllers\LivroFernandoController;
 use App\Http\Controllers\LivroTapiaController;
 
 use App\Http\Controllers\LivroWillController;
+use App\Http\Controllers\LivroGroffController;
 use App\Http\Controllers\LivroEdmarController;
 
 use App\Http\Controllers\LivroAlessandroOliveiraController;
+
+Route::get('/livros',[LivroController::class,'index']);
+Route::get('/livros/{isbn}',[LivroController::class,'show']);
+Route::get('/livro_michelets',[LivroMicheletController::class,'index']);
+Route::get('/livro_michelets/{isbn}',[LivroMicheletController::class,'show']);
 
 Route::get('/', [IndexController::class, 'index']);
 
@@ -133,6 +140,9 @@ Route::resource('/livro_priscilas', LivroPriscilaController::class);
 Route::get('/livro_wills', [LivroWillController::class, 'index']);
 Route::get('/livro_wills/{livro}', [LivroWillController::class, 'show'])->name('will.show');
 
+Route::get('/livro_groffs',[LivroGroffController::class,'index']);
+Route::get('/livro_groffs/{isbn}',[LivroGroffController::class,'show']);
+
 Route::get('/livrosfred',[LivroFredController::class,'index']);
 Route::get('/livrosfred/{isbn}',[LivroFredController::class,'show']);
 
@@ -162,3 +172,4 @@ Route::get('/livros/{isbn}', [LivroController::class,'show']);
 Route::get('/livrodeniss', [LivroDenisController::class,'index']);
 
 Route::get('/livrodeniss/{isbn}', [LivroDenisController::class,'show']);
+

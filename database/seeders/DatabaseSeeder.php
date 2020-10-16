@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             #UserSeeder::class,
             #LivroSeeder::class,
             #LivroRicardoSeeder::class,
+            LivroMicheletSeeder::class,
             LivroLeonardoSeeder::class,
             LivroSaotomeSeeder::class,
             LivroGabrielaSeeder::class,
@@ -35,8 +36,10 @@ class DatabaseSeeder extends Seeder
             LivroEbonilhaSeeder::class,
             LivroFernandoSeeder::class,
             LivroWillSeeder::class,
-            LivroAlessandroOliveiraSeeder::class,        
-            LivroDenisSeeder::class
+            LivroAlessandroOliveiraSeeder::class,
+            LivroDenisSeeder::class,
+            LivroGroffSeeder::class,
+            LivroAlessandroOliveiraSeeder::class
         ]);
     }
 }
