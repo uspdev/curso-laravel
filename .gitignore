@@ -11,3 +11,6 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 /config/laravel-usp-theme.php
+/nbproject/private/
+*.geany
+*.tags
