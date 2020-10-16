@@ -122,11 +122,9 @@ Route::get('/livros_ebonilha/{isbn}', [LivroEBonilhaController::class, 'show']);
 Route::get('/livros_fernando', [LivroFernandoController::class, 'index']);
 Route::get('/livros_fernando/{isbn}', [LivroFernandoController::class, 'show']);
 
-Route::get('/livros_priscila', [LivroPriscilaController::class, 'index']);
-Route::get('/livros_priscila/{isbn}', [LivroPriscilaController::class, 'show']);
-
-Route::get('/livros_priscila', [LivroPriscilaController::class,'index']);
-Route::get('/livros_priscila/{isbn}', [LivroPriscilaController::class,'show']);
+//Route::get('/livros_priscila', [LivroPriscilaController::class, 'index']);
+//Route::get('/livros_priscila/{isbn}', [LivroPriscilaController::class, 'show']);
+Route::resource('/livro_priscilas', LivroPriscilaController::class);
 
 Route::get('/livro_wills', [LivroWillController::class, 'index']);
 Route::get('/livro_wills/{livro}', [LivroWillController::class, 'show'])->name('will.show');
