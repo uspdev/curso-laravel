@@ -59,7 +59,6 @@ Route::get('/livros/{isbn}', [LivroController::class, 'show']);
 
 Route::resource('/livrossaotome', LivroSaotomeController::class);
 
-Route::get('/livros_lau', [LivroLauController::class, 'index']);
 
 #Route::get('/livrossaotome', [LivroControllerSaotome::class, 'index']);
 Route::get('/livrossaotome', [LivroSaotomeController::class, 'index']);
