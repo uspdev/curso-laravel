@@ -1,5 +1,4 @@
-@extends('main')
-
+@extends('mainlau')
 @section('content')
-@include('livrosLau.partials.fields')
+    @include('livrosLau.partials.fields')
 @endsection
