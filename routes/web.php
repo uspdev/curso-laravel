@@ -27,6 +27,8 @@ use App\Http\Controllers\LivroFernandoController;
 use App\Http\Controllers\LivroTapiaController;
 
 use App\Http\Controllers\LivroWillController;
+use App\Http\Controllers\LivroGroffController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -103,4 +105,8 @@ Route::get('/livros_priscila/{isbn}', [LivroPriscilaController::class,'show']);
 
 Route::get('/livro_wills', [LivroWillController::class, 'index']);
 Route::get('/livro_wills/{livro}', [LivroWillController::class, 'show'])->name('will.show');
+
+Route::get('/livro_groffs',[LivroGroffController::class,'index']);
+Route::get('/livro_groffs/{isbn}',[LivroGroffController::class,'show']);
+
 
