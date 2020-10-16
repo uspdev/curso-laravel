@@ -97,8 +97,9 @@ class LivroAlessandroOliveiraController extends Controller
      * @param LivroAlessandroOliveira $livro
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LivroAlessandroOliveira $livro)
+    public function destroy($livro)
     {
+        $livro = LivroAlessandroOliveira::find($livro);
         $livro->delete();
         return redirect('/livros_alessandrooliveira');
     }
