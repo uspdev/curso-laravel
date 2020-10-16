@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\LivroMarceloDaudt;
 use Illuminate\Database\Seeder;
 
 class LivroMarceloDaudtSeeder extends Seeder
@@ -18,7 +19,7 @@ class LivroMarceloDaudtSeeder extends Seeder
             'autor'     =>  "Machado de Assis",
             'isbn'      =>  "9780195106817"
         ];
-        \App\Models\LivroMarceloDaudt::create($livro);
-        \App\Models\LivroMarceloDaudt::factory(15)->create();
+        LivroMarceloDaudt::create($livro);
+        LivroMarceloDaudt::factory(100)->create();
     }
 }

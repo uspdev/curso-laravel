@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
+@extends('laravel-usp-theme::master')
 
-    </head>
-    <body>
-        @section('content')
-        @show
-    </body>
-</html>
+@section('javascripts_bottom')
+@parent
+<script type="text/javascript" src="{{ asset('js/livroFernando.js') }}"></script>
+@endsection

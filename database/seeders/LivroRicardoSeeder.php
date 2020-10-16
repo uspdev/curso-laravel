@@ -20,6 +20,6 @@ class LivroRicardoSeeder extends Seeder
             'isbn'   => "8546902488"
         ];
         LivroRicardo::create($livro);
-        LivroRicardo::factory(100)->create();
+        LivroRicardo::factory(20)->create();
     }
 }

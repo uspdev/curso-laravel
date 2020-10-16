@@ -25,7 +25,7 @@ class LivroWillEEController extends Controller
      */
     public function create()
     {
-        //
+        return view('livrowillEE.create');
     }
 
     /**
@@ -36,7 +36,15 @@ class LivroWillEEController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        $livro = new LivroWBM;
+        $livro->titulo  = $request->titulo;
+        $livro->autor   = $request->autor;
+        $livro->isbn    = $request->isbn;
+        $livro->save();
+
+        //return redirect("/livros_willEE/{$livro->id}");
+        return redirect("/livros_willEE");
     }
 
     /**
@@ -45,9 +53,9 @@ class LivroWillEEController extends Controller
      * @param  int  $isbn
      * @return \Illuminate\Http\Response
      */
-    public function show($isbn)
+    public function show($id)
     {
-        $livro = LivroWBM::where('isbn',$isbn)->first();
+        $livro = LivroWBM::where('id',$id)->first();
         return view ('livrowillEE.show',compact('livro'));
                 
     }
@@ -60,19 +68,29 @@ class LivroWillEEController extends Controller
      */
     public function edit($id)
     {
-        //
+        $livro = LivroWBM::where('id',$id)->first();
+        //dd($livro);
+        return view('livrowillEE.edit',compact('livro'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $id No caso aqui é de livros.. meu controller não está identico ao do Thiago não usei o --all no artisan
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        //dd($request);
+        $livro = LivroWBM::where('id',$id)->first();   //Capturo o livro de acordo com o ID     
+        $livro->titulo  = $request->titulo;
+        $livro->autor   = $request->autor;
+        $livro->isbn    = $request->isbn;
+        $livro->save();
+
+        //return redirect("/livros_willEE/{$livro->id}");
+        return redirect("/livros_willEE");
     }
 
     /**
@@ -83,6 +101,8 @@ class LivroWillEEController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $livro = LivroWBM::where('id',$id)->first();   //Capturo o livro de acordo com o ID
+        $livro->delete();
+        return redirect("/livros_willEE");
     }
 }
