@@ -68,8 +68,9 @@ class LivroAlessandroOliveiraController extends Controller
      * @param LivroAlessandroOliveira $livro
      * @return \Illuminate\Http\Response
      */    
-    public function edit(LivroAlessandroOliveira $livro)
+    public function edit($livro)
     {
+        $livro = LivroAlessandroOliveira::find($livro);
         return view('livros_alessandrooliveira.edit',[
             'livro' => $livro
         ]);
