@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LivroLFloroRequest;
 use App\Models\LivroLFloro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
+//use Illuminate\Support\Facades\Validator;
 
 class LivroLFloroController extends Controller
 {
@@ -33,46 +37,42 @@ class LivroLFloroController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Grava um recurso novo para LivroLFloro no bancdo
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  LivroLFloroRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LivroLFloroRequest $request)
     {
-        $livro = new LivroLFloro;
-        $livro->titulo = $request->titulo;
-        $livro->autor = $request->autor;
-        $livro->isbn = $request->isbn;
-        $livro->save();
+        $validated = $request->validated();
+        $livro = LivroLFloro::create($validated);
+        request()->session()->flash('alert-info', 'Livro cadastrado com sucesso!');
         return redirect("/livroslfloro/{$livro->id}");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  string $livroLFloro
+     * @param  LivroLFloro  $livroslfloro
      * @return \Illuminate\Http\Response
      */
-    public function show($livroId)
+    public function show(LivroLFloro $livroslfloro)
     {
-        $livro = LivroLFloro::find($livroId);
         return view('livroslfloro.show', [
-            'livro' => $livro
+            'livro' => $livroslfloro
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  string  $livroId
+     * @param  LivroLFloro  $livroslfloro
      * @return \Illuminate\Http\Response
      */
-    public function edit($livroId)
+    public function edit(LivroLFloro $livroslfloro)
     {
-        $livro = LivroLFloro::find($livroId);
         return view('livroslfloro.edit', [
-            'livro' => $livro
+            'livro' => $livroslfloro
         ]);
     }
 
@@ -83,14 +83,12 @@ class LivroLFloroController extends Controller
      * @param  \App\Models\LivroLFloro  $livroLFloro
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $livroId)
+    public function update(LivroLFloroRequest $request, LivroLFloro $livroslfloro)
     {
-        $livro = LivroLFloro::find($livroId);
-        $livro->titulo = $request->titulo;
-        $livro->autor = $request->autor;
-        $livro->isbn = $request->isbn;
-        $livro->save();
-        return redirect("/livroslfloro/{$livro->id}");
+        $validated = $request->validated();
+        $livroslfloro->update($validated);
+        request()->session()->flash('alert-info', 'Livro atualizado com sucesso!');
+        return redirect("/livroslfloro/{$livroslfloro->id}");
     }
 
     /**
