@@ -49,8 +49,7 @@ Route::resource('livros', LivroController::class);
 
 Route::resource('livrogabrielas', LivroGabrielaController::class);
 
-Route::get('livrostapia', [LivroTapiaController::class, 'index']);
-Route::get('livrostapia/{isbn}', [LivroTapiaController::class, 'show']);
+Route::resource('livrostapia', LivroTapiaController::class);
 
 Route::get('/livros', [LivroController::class, 'index']);
 
@@ -140,10 +139,3 @@ Route::get('/livroedmar/{isbn}',[LivroEdmarController::class,'show']);
 
 Route::get('/livros_alessandrooliveira', [LivroAlessandroOliveiraController::class, 'index']);
 Route::get('/livros_alessandrooliveira/{livro}', [LivroAlessandroOliveiraController::class, 'show']);
-
-Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('login', [LoginController::class, 'login']);
-Route::post('logout', [LoginController::class, 'logout']);
-
-Route::get('/login/senhaunica', [LoginController::class, 'redirectToProvider']);
-Route::get('/logincallback', [LoginController::class, 'handleProviderCallback']);
