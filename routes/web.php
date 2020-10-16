@@ -152,3 +152,4 @@ Route::get('/livro_celsos/{isbn}', [LivroCelsoController::class,'show']);
 Route::get('/login/senhaunica', [LoginController::class, 'redirectToProvider']);
 Route::get('/logincallback', [LoginController::class, 'handleProviderCallback']);
 
+Route::resource('/livrosMarceloDaudt', LivroMarceloDaudtController::class);

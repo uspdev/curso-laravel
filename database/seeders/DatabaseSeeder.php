@@ -15,15 +15,15 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
+            # Vou deixar comentando para não quebrar a migration de quem ainda não chegou na aula do replicado
             #UserSeeder::class,
             #LivroSeeder::class,
-            LivroRicardoSeeder::class,
+            #LivroRicardoSeeder::class,
             LivroLeonardoSeeder::class,
             LivroSaotomeSeeder::class,
             LivroGabrielaSeeder::class,
             LivroMarisaSeeder::class,
             LivroVictorSeeder::class,
-            LivroricardoSeeder::class,
             LivroMarisaSeeder::class,
             LivroCelsoSeeder::class,
             LivroMarisaSeeder::class,
