@@ -18,7 +18,7 @@ class CreateLivroCelsosTable extends Migration
             $table->timestamps();
             $table->string('titulo');
             $table->string('autor')->nullable();
-            $table->string('isbn');
+            $table->string('isbn');            
         });
     }
 
