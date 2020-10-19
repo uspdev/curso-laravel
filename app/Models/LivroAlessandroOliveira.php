@@ -9,4 +9,5 @@ class LivroAlessandroOliveira extends Model
 {
     use HasFactory;
     protected $table = 'livros_alessandrooliveira';
+    protected $guarded = ['id'];
 }
