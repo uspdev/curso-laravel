@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LivroCelso;
 use Illuminate\Http\Request;
+use App\Http\Requests\LivroCelsoRequest;
 
 class LivroCelsoController extends Controller
 {
@@ -38,14 +39,12 @@ class LivroCelsoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LivroCelsoRequest $request)
     {
-        $livro = new LivroCelso;
-        $livro->titulo = $request->titulo;
-        $livro->autor = $request->autor;
-        $livro->isbn = $request->isbn;
-        $livro->save();
-        return redirect("/livro_celsos");
+        $validated = $request->validated();
+        $livro = LivroCelso::create($validated);        
+        request()->session()->flash('alert-info','Livro cadastrado com sucesso');
+        return redirect("/livro_celsos/{$livro->id}");
     }
 
     /**
@@ -81,12 +80,11 @@ class LivroCelsoController extends Controller
      * @param  \App\Models\LivroCelso  $livroCelso
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LivroCelso $livroCelso)
+    public function update(LivroCelsoRequest $request, LivroCelso $livroCelso)
     {
-        $livroCelso->titulo = $request->titulo;
-        $livroCelso->autor = $request->autor;
-        $livroCelso->isbn = $request->isbn;
-        $livroCelso->save();
+        $validated = $request->validated();
+        $livroCelso->update($validated);
+        request()->session()->flash('alert-info','Livro atualizado com sucesso');
         return redirect("/livro_celsos");
     }
 
