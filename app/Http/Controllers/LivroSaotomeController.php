@@ -37,6 +37,7 @@ class LivroSaotomeController extends Controller
     public function store(LivroSaotomeRequest $request)
     {
         $validated = $request->validated();
+        $validated['user_id'] = auth()->user()->id;
         $livroSaotome = LivroSaotome::create($validated);
         request()->session()->flash('alert-info', 'Livro cadastrado com sucesso');
         # return redirect("/livrossaotome/{$livroSaotome->id}");
@@ -78,6 +79,7 @@ class LivroSaotomeController extends Controller
     public function update(LivroSaotomeRequest $request, LivroSaotome $livrossaotome)
     {   
         $validated = $request->validated();
+        $validated['user_id'] = auth()->user()->id;
         $livrossaotome->update($validated);
         request()->session()->flash('alert-info', 'Livro atualizado com sucesso');
         return redirect("/livrossaotome/{$livrossaotome->id}");
