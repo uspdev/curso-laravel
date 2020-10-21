@@ -10,4 +10,6 @@ class LivroLFloro extends Model
     use HasFactory;
 
     protected $table = 'livroslfloro';
+
+    protected $guarded = ['id'];
 }

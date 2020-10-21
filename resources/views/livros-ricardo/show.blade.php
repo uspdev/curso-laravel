@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main_ricardo')
 
 @section('content')
 <h2 class="mb-3 mt-5">Livro</h2>
@@ -11,6 +11,9 @@
     @endif
     @if ($livro->isbn !== '')
         <li class="list-group-item">ISBN:  <span class="isbn">{{ $livro->isbn }}</span></li>
+    @endif
+    @if ($livro->user != null)
+        <li class="list-group-item">Cadastrado por:  {{ $livro->user->name }}</li>
     @endif
 </ul>
 <a href="/livros-ricardo" class="btn btn-success mt-3">Início</a>

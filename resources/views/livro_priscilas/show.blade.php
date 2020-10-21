@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main_priscilas')
 
 @section('title')
   Teste Laravel Priscila show

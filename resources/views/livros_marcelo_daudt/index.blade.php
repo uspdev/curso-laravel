@@ -1,12 +1,10 @@
-<!-- ###### index.blade.php ###### -->
-
-@extends('main')
+@extends('mainMarceloDaudt')
 
 @section('content')
 
-  @forelse ($livrosMarceloDaudt as $livroMarceloDaudt)
+  @forelse ($livros as $livro)
     @include('livros_marcelo_daudt.partials.fields')
-
+    <br>
   @empty
     Não há livros cadastrados
   @endforelse

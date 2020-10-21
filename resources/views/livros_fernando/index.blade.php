@@ -4,7 +4,7 @@
 
 @forelse($livros as $livro)
 
-@include('livro_fernandos.partials.fields')
+@include('livros_fernando.partials.fields')
 <br>
 
 @empty

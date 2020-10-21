@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
+@extends('laravel-usp-theme::master')
 
-    </head>
-    <body>
-        @section('content') @show        
-    </body>
-</html>
+@section('javascripts_head')
+    <script type="text/javascript" src="{{ asset('js/livrotapia.js')}}"></script>
+@endsection
