@@ -16,9 +16,6 @@ class CreateLivroEbonilhasTable extends Migration
         Schema::create('livro_ebonilhas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('titulo');
-            $table->string('autor')->nullable();
-            $table->string('isbn');
         });
     }
 
