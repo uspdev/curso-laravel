@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             LivroMarisaSeeder::class,
             LivroLauSeeder::class,
             LivroFabioFDRPSeeder::class,
+			      LivroAndreSeeder::class,
             LivromasakikSeeder::class,
             LivroMarceloDaudtSeeder::class,
             LivroLFloroSeeder::class,

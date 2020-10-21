@@ -18,6 +18,7 @@ use App\Http\Controllers\LivroLauController;
 use App\Http\Controllers\LivroRicardoController;
 use App\Http\Controllers\LivroMarisaController;
 use App\Http\Controllers\LivroVictorController;
+use App\Http\Controllers\LivroAndreController;
 use App\Http\Controllers\LivroCelsoController;
 use App\Http\Controllers\LivroFredController;
 use App\Http\Controllers\LivroMasakikController;
@@ -165,3 +166,7 @@ Route::get('/logincallback', [LoginController::class, 'handleProviderCallback'])
 
 Route::resource('/livrosMarceloDaudt', LivroMarceloDaudtController::class);
 
+
+Route::resource('livrosandre', LivroAndreController::class);
+Route::get('/livrosandre', [LivroAndreController::class, 'index']);
+Route::get('/livrosandre/{isbn}', [LivroAndreController::class, 'show']);
