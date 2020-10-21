@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class LivroCelso extends Model
 {
     use HasFactory;
+    protected $guarded = ['id']; 
 }

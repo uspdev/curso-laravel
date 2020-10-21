@@ -159,8 +159,7 @@ Route::post('logout', [LoginController::class, 'logout']);
 Route::get('/livrosvictor', [LivroVictorController::class,'index']);
 Route::get('/livrosvictor/{isbn}', [LivroVictorController::class,'show']);
 
-Route::get('/livro_celsos', [LivroCelsoController::class,'index']);
-Route::get('/livro_celsos/{isbn}', [LivroCelsoController::class,'show']);
+Route::resource('/livro_celsos', LivroCelsoController::class);
 
 Route::get('/login/senhaunica', [LoginController::class, 'redirectToProvider']);
 Route::get('/logincallback', [LoginController::class, 'handleProviderCallback']);
