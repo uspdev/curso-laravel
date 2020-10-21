@@ -49,11 +49,9 @@ Route::get('/livro_michelets/{isbn}',[LivroMicheletController::class,'show']);
 
 Route::get('/', [IndexController::class, 'index']);
 
-Route::get('/livros_leonardo', [LivroLeonardoController::class, 'index']);
-Route::get('/livros_leonardo/{isbn}', [LivroLeonardoController::class, 'show']);
-
 Route::resource('livros', LivroController::class);
 
+Route::resource('livros_leonardo', LivroLeonardoController::class);
 
 Route::resource('livrogabrielas', LivroGabrielaController::class);
 
