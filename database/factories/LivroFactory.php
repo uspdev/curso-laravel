@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Livro;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class LivroFactory extends Factory
@@ -22,9 +23,11 @@ class LivroFactory extends Factory
     public function definition()
     {
         return [
-            'titulo' => $this->faker->sentence(3),
-            'isbn'   => $this->faker->ean13(),
-            'autor'  => $this->faker->name
+            'titulo'  => $this->faker->sentence(3),
+            'isbn'    => $this->faker->ean13(),
+            'autor'   => $this->faker->name,
+            'user_id' => User::factory()->create()->id
+
         ];
     }
 }

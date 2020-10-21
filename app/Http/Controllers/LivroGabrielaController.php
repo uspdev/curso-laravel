@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LivroGabriela;
 use Illuminate\Http\Request;
+use App\Http\Requests\LivroGabrielaRequest;
 
 class LivroGabrielaController extends Controller
 {
@@ -22,14 +23,13 @@ class LivroGabrielaController extends Controller
         ]);
     }
     
-    public function store(Request $request)
-    {
-        $livrogabriela = new LivroGabriela;
-        $livrogabriela->titulo = $request->titulo;
-        $livrogabriela->autor = $request->autor;
-        $livrogabriela->isbn = $request->isbn;
-        $livrogabriela->save();
-        return redirect("/livrogabrielas");
+    public function store(LivroGabrielaRequest $request)
+    {   
+        $validated = $request->validated();
+
+        $livrogabriela = LivroGabriela::create($validated);
+        
+        return redirect("/livrogabrielas/{$livrogabriela->id}");
     }
     
     public function show(LivroGabriela $livrogabriela)
@@ -40,19 +40,19 @@ class LivroGabrielaController extends Controller
     }
     
     public function edit(LivroGabriela $livrogabriela)
-    {
+    {   
         return view('livrogabrielas.edit', [
             'livrogabriela' => $livrogabriela
         ]);
     }
     
-    public function update(Request $request, LivroGabriela $livrogabriela)
+    public function update(LivroGabrielaRequest $request, LivroGabriela $livrogabriela)
     {
-        $livrogabriela->titulo = $request->titulo;
-        $livrogabriela->autor = $request->autor;
-        $livrogabriela->isbn = $request->isbn;
-        $livrogabriela->save();
-        return redirect("/livrogabrielas");
+        $validated = $request->validated();
+
+        $livrogabriela->update($validated);
+        request()->session()->flash('alert-info','Livro atualizado com sucesso');
+        return redirect("/livrogabrielas/{$livrogabriela->id}");
     }
     
     public function destroy(LivroGabriela $livrogabriela)
