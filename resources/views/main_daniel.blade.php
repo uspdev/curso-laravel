@@ -1,5 +1,9 @@
 @extends('laravel-usp-theme::master')
 
+@section('javascripts_bottom')
+<script type="text/javascript" src="{{ asset('js/livroDaniel.js') }}"></script>
+@endsection
+
 @section('flash')
     @if ($errors->any())
     <div class="alert alert-danger">
