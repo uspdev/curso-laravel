@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LivroFernando;
 use Illuminate\Http\Request;
+use App\Http\Requests\LivroFernandoRequest;
 
 class LivroFernandoController extends Controller
 {
@@ -38,15 +39,12 @@ class LivroFernandoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LivroFernandoRequest $request)
     {
-        $livro = new LivroFernando;
-        $livro->titulo = $request->titulo;
-        $livro->autor = $request->autor;
-        $livro->isbn = $request->isbn;
-        $livro->save();
-        //return redirect("/livros_fernando/{$livro->id}");
-        return redirect("/livros_fernando");
+        $validated = $request->validated();
+        $livros_fernando = LivroFernando::create($validated);
+        request()->session()->flash('alert-info','Livro cadastrado com sucesso');
+        return redirect("/livros_fernando/{$livros_fernando->id}");
     }
 
     /**
@@ -82,14 +80,12 @@ class LivroFernandoController extends Controller
      * @param  \App\Models\LivroFernando  $livroFernando
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LivroFernando $livros_fernando)
+    public function update(LivroFernandoRequest $request, LivroFernando $livros_fernando)
     {
-        $livros_fernando->titulo = $request->titulo;
-        $livros_fernando->autor = $request->autor;
-        $livros_fernando->isbn = $request->isbn;
-        $livros_fernando->save();
-        return redirect("/livros_fernando/{$livro->id}");
-        //return redirect("/livros_fernando");
+        $validated = $request->validated();
+        $livros_fernando->update($validated);
+        request()->session()->flash('alert-info','Livro atualizado com sucesso');
+        return redirect("/livros_fernando/{$livros_fernando->id}");
     }
 
     /**
