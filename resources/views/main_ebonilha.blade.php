@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>@section('title') Exemplo @show</title>
-</head>
-<body>
-    @yield('content')
-</body>
-</html>
+@extends('laravel-usp-theme::master')
+
+@section('javascripts_head')
+    <script type="text/javascript" src="{{ asset('js/livro.js') }}"></script>
+@endsection

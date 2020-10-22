@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\LivroDaniel;
+use Illuminate\Http\Request;
+use \App\Http\Requests\LivroDanielRequest;
 
-class LivroDanielController  extends Controller
+class LivroDanielController extends Controller
 {
-   public function index()
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
         $livros = LivroDaniel::all();
         return view('livros_daniel.index', [
@@ -15,13 +22,87 @@ class LivroDanielController  extends Controller
         ]);
     }
 
-    public function show($isbn)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        $livro = LivroDaniel::where('isbn', $isbn)->first();
-      
-        return view('livros_daniel.show', [
-            'livro' => $livro
+        return view('livros_daniel.create', [
+            'livro' => new LivroDaniel
         ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(LivroDanielRequest $request)
+    {
+        // o método validated retorna somente os valores que passaram
+        // pela validação do Request LivroDanielRequest
+        $validated = $request->validated();
+        $livro = LivroDaniel::create($validated);
+        // Define sessão flash para exibição de mensagem na View
+        request()->session()->flash('alert-info', 'Livro cadastrado com sucesso');
+        return redirect('livros_daniel/');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\LivroDaniel  $livroDaniel
+     * @return \Illuminate\Http\Response
+     */
+    public function show(LivroDaniel $livros_daniel)
+    {
+        return view('livros_daniel.show', [
+            'livro' => $livros_daniel,
+        ]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\LivroDaniel  $livroDaniel
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(LivroDaniel $livros_daniel)
+    {
+        return view('livros_daniel.edit', [
+            'livro' => $livros_daniel,
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\LivroDaniel  $livroDaniel
+     * @return \Illuminate\Http\Response
+     */
+    public function update(LivroDanielRequest $request, LivroDaniel $livros_daniel)
+    {
+
+        $validated = $request->validated();
+        $livros_daniel->update($validated);
+        request()->session()->flash('alert-info', 'Livro atualizado com sucesso');
+        return redirect('livros_daniel/');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\LivroDaniel  $livroDaniel
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(LivroDaniel $livros_daniel)
+    {
+        $livros_daniel->delete();
+        return redirect('livros_daniel');
     }
 
 }

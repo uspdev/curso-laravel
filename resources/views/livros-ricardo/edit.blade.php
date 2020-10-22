@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main_ricardo')
 
 @section('content')
 <h2 class="mb-3 mt-5">Atualizar livro</h2>
