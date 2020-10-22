@@ -1,4 +1,16 @@
-Título: <input type="text" name="titulo" value="{{ $livro->titulo }}"><br>
-Autor: <input type="text" name="autor" value="{{ $livro->autor }}"><br>
-ISBN: <input type="text" class="isbn" name="isbn" value="{{ $livro->isbn }}"><br>
+Título: <input type="text" name="titulo" value="{{ old('titulo', $livro->titulo) }}"><br>
+Autor: <input type="text" name="autor" value="{{ old('autor', $livro->autor) }}"><br>
+ISBN: <input type="text" class="isbn" name="isbn" value="{{ old('isbn', $livro->isbn) }}"><br>
 <button type="submit">Enviar</button>
+
+@section ('flash')
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+@endsection

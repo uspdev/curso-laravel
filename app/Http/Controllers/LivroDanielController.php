@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\LivroDaniel;
 use Illuminate\Http\Request;
+use \App\Http\Requests\LivroDanielRequest;
 
-class LivroDanielController extends Controller {
+class LivroDanielController extends Controller
+{
 
     /**
      * Display a listing of the resource.
@@ -38,13 +40,14 @@ class LivroDanielController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LivroDanielRequest $request)
     {
-        $livro = new LivroDaniel;
-        $livro->titulo = $request->titulo;
-        $livro->autor = $request->autor;
-        $livro->isbn = $request->isbn;
-        $livro->save();
+        // o método validated retorna somente os valores que passaram
+        // pela validação do Request LivroDanielRequest
+        $validated = $request->validated();
+        $livro = LivroDaniel::create($validated);
+        // Define sessão flash para exibição de mensagem na View
+        request()->session()->flash('alert-info', 'Livro cadastrado com sucesso');
         return redirect('livros_daniel/');
     }
 
@@ -81,12 +84,12 @@ class LivroDanielController extends Controller {
      * @param  \App\Models\LivroDaniel  $livroDaniel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LivroDaniel $livros_daniel)
+    public function update(LivroDanielRequest $request, LivroDaniel $livros_daniel)
     {
-        $livros_daniel->titulo = $request->titulo;
-        $livros_daniel->autor = $request->autor;
-        $livros_daniel->isbn = $request->isbn;
-        $livros_daniel->save();
+
+        $validated = $request->validated();
+        $livros_daniel->update($validated);
+        request()->session()->flash('alert-info', 'Livro atualizado com sucesso');
         return redirect('livros_daniel/');
     }
 
