@@ -27,6 +27,17 @@ $submenu1_alessandrooliveira = [
     ],
 ];
 
+$submenu1_livrosvictor = [
+    [
+        'text' => '<i class="fas fa-book"></i>  Livros',
+        'url' => config('app.url') . '/livrosvictor',
+    ],
+    [
+        'text' => '<i class="fas fa-plus"></i>  Novo livro',
+        'url' => config('app.url') . '/livrosvictor/create',
+    ],
+];
+
 $submenu2 = [
     [
         'text' => 'SubItem 1',
@@ -66,7 +77,11 @@ return [
         [
             'text' => '<i class="fas fa-bomb"></i> Alessandro Oliveira',
             'submenu' => $submenu1_alessandrooliveira,
-        ],          
+        ],
+        [
+            'text' => '<i class="fas fa-bomb"></i> Livros Victor',
+            'submenu' => $submenu1_livrosvictor,
+        ],           
         /*/[
             'text' => 'SubMenu1',
             'submenu' => $submenu1,

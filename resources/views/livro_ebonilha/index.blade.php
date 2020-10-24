@@ -1,7 +1,7 @@
 @extends('main_ebonilha')
 
 @section('content')
-    @forelse ($livros as $livro)
+    @forelse ($livrosEbonilha as $livros_ebonilha)
         @include('livro_ebonilha.partials.fields')
     @empty
         Não há livros cadastrados
