@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\LivroEbonilha;
+use App\Http\Requests\LivroEbonilhaRequest;
 use Illuminate\Http\Request;
 
 class LivroEbonilhaController extends Controller
@@ -38,13 +39,11 @@ class LivroEbonilhaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $livro = new LivroEbonilha;
-        $livro->titulo = $request->titulo;
-        $livro->autor = $request->autor;
-        $livro->isbn = $request->isbn;
-        $livro->save();
+    public function store(LivroEbonilhaRequest $request)
+    {  
+        $validated = $request->validated();
+        $livro = LivroEbonilha::create($validated);
+        request()->session()->flash('alert-info', 'Livro cadastrado com sucesso!');
         return redirect("/livros_ebonilha/{$livro->id}");
     }
 
@@ -81,12 +80,11 @@ class LivroEbonilhaController extends Controller
      * @param  \App\Models\LivroEbonilha  $livroEbonilha
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LivroEbonilha $livros_ebonilha)
+    public function update(LivroEbonilhaRequest $request, LivroEbonilha $livros_ebonilha)
     {
-        $livros_ebonilha->titulo = $request->titulo;
-        $livros_ebonilha->autor = $request->autor;
-        $livros_ebonilha->isbn = $request->isbn;
-        $livros_ebonilha->save();
+        $validated = $request->validated();
+        $livros_ebonilha->update($validated);
+        request()->session()->flash('alert-info', 'Livro atualizado com sucesso!');
         return redirect("/livros_ebonilha/{$livros_ebonilha->id}");
     }
 

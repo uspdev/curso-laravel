@@ -3,6 +3,7 @@
         <li class="list-group-item" ><a href="/livrossaotome/{{$livroSaotome->id}}">{{$livroSaotome->titulo}}</a></li>
         <li class="list-group-item">{{$livroSaotome->autor}}</li>
         <li class="list-group-item isbn">{{$livroSaotome->isbn}}</li>
+        <li class="list-group-item"> Cadastrado por: {{ $livroSaotome->user->name ?? '' }}</li>
     </ul>
     </br>
     <div class="col-sm form-group">

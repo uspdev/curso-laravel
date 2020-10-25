@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\LivroVictor;
-
+use App\Models\User;
 class LivroVictorSeeder extends Seeder
 {
     /**
@@ -17,9 +17,10 @@ class LivroVictorSeeder extends Seeder
         $livro = [
             'titulo' => "Quincas Borba",
             'autor'  => "Machado de Assis",
-            'isbn'   => "9780195106817"
+            'isbn'   => "9780195106817",
+            'user_id' => User::factory()->create()->id,
         ];
         LivroVictor::create($livro);
-        LivroVictor::factory(150)->create();
+        LivroVictor::factory(15)->create();
     }
 }
