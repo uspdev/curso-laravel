@@ -109,6 +109,7 @@ Route::get('/livros_marcelomodesto/{isbn}', [LivroMarceloModestoController::clas
 Route::resource('/livrosmasakik', LivroMasakikController::class);
 
 Route::resource('/livros_daniel', LivroDanielController::class);
+Route::get('/home', [LivroDanielController::class, 'index']);
 
 Route::resource('/livros_leandroramos', LivroLeandroRamosController::class)->parameters([
     'livros_leandroramos' => 'livro',
@@ -164,6 +165,7 @@ Route::resource('/livro_celsos', LivroCelsoController::class);
 
 Route::get('/login/senhaunica', [LoginController::class, 'redirectToProvider']);
 Route::get('/logincallback', [LoginController::class, 'handleProviderCallback']);
+Route::get('/callback', [LoginController::class, 'handleProviderCallback']);
 
 Route::resource('/livrosMarceloDaudt', LivroMarceloDaudtController::class);
 Route::get('/livros/{isbn}', [LivroController::class,'show']);
