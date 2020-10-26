@@ -20,6 +20,6 @@ class LivroGabrielaSeeder extends Seeder
                 'isbn'   => "9780195106817"
         ];
         LivroGabriela::create($livrogabriela);
-        LivroGabriela::factory(100)->create();
+        LivroGabriela::factory(10)->create();
     }
 }
