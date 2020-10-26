@@ -2,6 +2,8 @@
     <li class="list-group-item"><b>Título:</b> <a href="/livrosvictor/{{$livrovictor->id}}">{{ $livrovictor->titulo ?? 'Livro não encontrado' }}</a></li>
     <li class="list-group-item"><b>Autor:</b> {{ $livrovictor->autor  ?? 'Livro não encontrado' }}</li>
     <li class="list-group-item"><b>ISBN:</b> {{ $livrovictor->isbn ?? 'Livro não encontrado' }}</li>
+    <li class="list-group-item"><b>Procedência:</b> {{ $livrovictor->tipo ?? 'Livro não encontrado' }}</li>
+    <li class="list-group-item"><b>Preço:</b> R$ {{ $livrovictor->preco ?? 'Livro não encontrado' }}</li>
     <li class="list-group-item">
         <div class="row">
             <div class="col-auto">
