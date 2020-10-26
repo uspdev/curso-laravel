@@ -1,8 +1,9 @@
 <div class="card-body">
     <ul class="list-group list-group-flush">
-        <li class="list-group-item" ><a href="/livrolau/{{$livrolau->id}}">{{$livrolau->titulo}}</a></li>
-        <li class="list-group-item">{{$livrolau->autor}}</li>
-        <li class="list-group-item isbn">{{$livrolau->isbn}}</li>
+        <li class="list-group-item text-uppercase" ><a href="/livrolau/{{$livrolau->id}}">{{$livrolau->titulo}}</a></li>
+        <li class="list-group-item"><div class="font-weight-bold">Autor:</div>{{$livrolau->autor}}</li>
+        <li class="list-group-item isbn"><div class="font-weight-bold">ISBN:</div>{{$livrolau->isbn}}</li>
+        <li class="list-group-item"><div class="font-weight-bold">Cadastrado por:</div>{{ $livro->user->name ?? '' }}</li>
     </ul>
     </br>
     <div class="col-sm form-group">

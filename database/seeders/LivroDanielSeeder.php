@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\LivroDaniel;
 
 class LivroDanielSeeder extends Seeder {
 
