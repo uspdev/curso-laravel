@@ -18,6 +18,8 @@ class LivroLauSeeder extends Seeder
             'titulo' => 'A Vida Secreta das Árvores',
             'autor'  => 'Peter Wohlleben',
             'isbn'   => '9788543104652',
+            'tipo'   => 'Livro',
+            'preco'  => '39,90',
         ];
 
         LivroLau::create($livro);

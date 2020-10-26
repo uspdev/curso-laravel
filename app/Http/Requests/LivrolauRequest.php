@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use App\Models\LivroLau;
 
 class LivrolauRequest extends FormRequest
 {
@@ -27,6 +29,8 @@ class LivrolauRequest extends FormRequest
             'titulo' => 'required',
             'autor'  => 'nullable',
             'isbn'   => ['required','integer'],
+            'tipo'   => ['required', Rule::in(LivroLau::tipos())],
+            'preco'  => 'nullable'
         ];
         if ($this->method() == 'PATCH' || $this->method() == 'PUT'){
             array_push($rules['isbn'], 'unique:livro_laus,isbn,' .$this->livrolau->id);
