@@ -26,7 +26,7 @@ class LivroGabrielaController extends Controller
     public function store(LivroGabrielaRequest $request)
     {   
         $validated = $request->validated();
-
+        $validated['user_id'] = auth()->user()->id;
         $livrogabriela = LivroGabriela::create($validated);
         
         return redirect("/livrogabrielas/{$livrogabriela->id}");
@@ -49,7 +49,7 @@ class LivroGabrielaController extends Controller
     public function update(LivroGabrielaRequest $request, LivroGabriela $livrogabriela)
     {
         $validated = $request->validated();
-
+        $validated['user_id'] = auth()->user()->id;
         $livrogabriela->update($validated);
         request()->session()->flash('alert-info','Livro atualizado com sucesso');
         return redirect("/livrogabrielas/{$livrogabriela->id}");
