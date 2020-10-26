@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LivroLeonardo;
 use Illuminate\Http\Request;
+use App\Http\Requests\LivroLeonardoRequest;
 
 class LivroLeonardoController extends Controller
 {
@@ -34,13 +35,11 @@ class LivroLeonardoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LivroLeonardoRequest $request)
     {
-        $livro = new LivroLeonardo;
-        $livro->titulo = $request->titulo;
-        $livro->autor = $request->autor;
-        $livro->isbn = $request->isbn;
-        $livro->save();
+        $validated = $request->validated();
+        $livro = LivroLeonardo::create($validated);
+        request()->session()->flash('alert-info','Livro cadastrado com sucesso');
         return redirect("/livros_leonardo/{$livro->id}");
     }
 
@@ -75,13 +74,12 @@ class LivroLeonardoController extends Controller
      * @param  \App\Models\LivroLeonardo  $livroLeonardo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(LivroLeonardoRequest $request, $id)
     {
+        $validated = $request->validated();
         $livro = LivroLeonardo::find($id);
-        $livro->titulo = $request->titulo;
-        $livro->autor = $request->autor;
-        $livro->isbn = $request->isbn;
-        $livro->save();
+        $livro->update($validated);
+        request()->session()->flash('alert-info','Livro atualizado com sucesso');
         return redirect("/livros_leonardo/{$livro->id}");
     }
 
