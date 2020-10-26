@@ -42,8 +42,6 @@ use App\Http\Controllers\LivroEdmarController;
 
 use App\Http\Controllers\LivroAlessandroOliveiraController;
 
-Route::get('/livros',[LivroController::class,'index']);
-Route::get('/livros/{isbn}',[LivroController::class,'show']);
 Route::get('/livro_michelets',[LivroMicheletController::class,'index']);
 Route::get('/livro_michelets/{isbn}',[LivroMicheletController::class,'show']);
 
@@ -172,3 +170,4 @@ Route::get('/livrodeniss/{isbn}', [LivroDenisController::class,'show']);
 Route::resource('livrosandre', LivroAndreController::class);
 Route::get('/livrosandre', [LivroAndreController::class, 'index']);
 Route::get('/livrosandre/{isbn}', [LivroAndreController::class, 'show']);
+Route::resource('/livrosMarceloDaudt', LivroMarceloDaudtController::class);

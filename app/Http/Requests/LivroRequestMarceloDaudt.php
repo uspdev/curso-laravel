@@ -3,10 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
-use App\Models\Livro;
 
-class LivroRequest extends FormRequest
+class LivroRequestMarceloDaudt extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,25 +25,16 @@ class LivroRequest extends FormRequest
     {
         $rules = [
             'titulo' => 'required',
-            'autor'  => 'nullable',
-            'isbn'   => ['required', 'integer'],
-            'tipo'   => ['required', Rule::in(Livro::tipos())],
-            'preco'  => 'nullable'
+            'autor'  => 'required',
+            'isbn' => ['required','integer'],
         ];
-
-        if($this->method() == 'PATCH' || $this->method() == 'PUT'){
-            array_push($rules['isbn'], 'unique:livros,isbn,' . $this->livro->id);
-        } else {
-            array_push($rules['isbn'], 'unique:livros,isbn');
+        if ($this->method() == 'PATCH' || $this->method() == 'PUT'){
+            array_push($rules['isbn'], 'unique:livros,isbn,' .$this->livrosMarceloDaudt->id);
         }
-
+        else{
+            array_push($rules['isbn'], 'unique:livros');
+        }
         return $rules;
-    }
-    public function messages()
-    {
-        return [
-            'isbn.required' => 'Digite um campo please de isbn',
-        ];
     }
 
     protected function prepareForValidation()
@@ -53,5 +42,13 @@ class LivroRequest extends FormRequest
         $this->merge([
             'isbn' => preg_replace('/[^0-9]/', '', $this->isbn),
         ]);
+    }
+
+    public function messages()
+    {
+        return [
+            'isbn.required' => 'Necessário digitar um ISBN!',
+            'isbn.unique' => 'Este ISBN já está cadastrado para outro livro!',
+        ];
     }
 }
