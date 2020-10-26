@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\LivroSaotome;
+use App\Models\User;
 
 class LivroSaotomeSeeder extends Seeder
 {

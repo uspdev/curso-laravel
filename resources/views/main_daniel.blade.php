@@ -1,11 +1,27 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel no contexto USP</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        @section('content') @show
-    </body>
-</html>
+@extends('laravel-usp-theme::master')
+
+@section('javascripts_bottom')
+<script type="text/javascript" src="{{ asset('js/livroDaniel.js') }}"></script>
+@endsection
+
+@section('flash')
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+@endsection
+
+<div class="flash-message">
+  @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+    @if(Session::has('alert-' . $msg))
+      <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }}
+        <a href="#" class="close" data-dismiss="alert" aria-label="fechar">&times;</a>
+      </p>
+    @endif
+  @endforeach
+</div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\LivroTapia;
+use App\Http\Requests\LivroTapiaRequest;
 
 class LivroTapiaController extends Controller
 {
@@ -28,13 +29,24 @@ class LivroTapiaController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    //public function store(Request $request)
+    public function store(LivroTapiaRequest $request)
     {
-        $livro = new LivroTapia;
-        $livro->titulo = $request->titulo;
-        $livro->autor = $request->autor;
-        $livro->isbn = $request->isbn;
-        $livro->save();
+        // $request->validate([
+        //     'titulo' => 'required',
+        //     'autor' => 'required',
+        //     'isbn' => 'required|integer',
+        // ]);
+
+        //$livro = new LivroTapia;
+        //$livro->titulo = $request->titulo;
+        //$livro->autor = $request->autor;
+        //$livro->isbn = $request->isbn;
+        //$livro->save();
+        $validated = $request->validated();
+        $livro = LivroTapia::create($validated);
+        //$livro = Livro::create($request->all());
+
         return redirect("/livrostapia/{$livro->id}");
     }
 
@@ -46,12 +58,25 @@ class LivroTapiaController extends Controller
         ]);
     }
 
-    public function update(Request $request, LivroTapia $livrostapium)
+    //public function update(Request $request, LivroTapia $livrostapium)
+    public function update(LivroTapiaRequest $request, LivroTapia $livrostapium)    
     {
-        $livrostapium->titulo = $request->titulo;
-        $livrostapium->autor = $request->autor;
-        $livrostapium->isbn = $request->isbn;
-        $livrostapium->save();
+        // $request->validate([
+        //     'titulo' => 'required',
+        //     'autor' => 'required',
+        //     'isbn' => 'required|integer',
+        // ]);
+
+        // $livrostapium->titulo = $request->titulo;
+        // $livrostapium->autor = $request->autor;
+        // $livrostapium->isbn = $request->isbn;
+        // $livrostapium->save();
+        
+        $validated = $request->validated();
+        $livrostapium->update($validated);
+        request()->session()->flash('alert-info','Livro atualizado com sucesso');
+
+        // $livro->update($request->all());
         return redirect("/livrostapia/{$livrostapium->id}");
     }
 

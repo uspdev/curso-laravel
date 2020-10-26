@@ -15,10 +15,14 @@
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
+<<<<<<< HEAD
         "uspdev/laravel-usp-faker": "^1.0",
         "uspdev/laravel-usp-theme": "^1.0",
         "uspdev/replicado": "^1.5",
         "uspdev/senhaunica-socialite": "^2.0"
+=======
+        "uspdev/laravel-usp-theme": "^1.0"
+>>>>>>> upstream/master
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
@@ -54,8 +58,7 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi",
-            "@php artisan vendor:publish --provider='Uspdev\\UspTheme\\ServiceProvider' --tag=assets --force"
+            "@php artisan package:discover --ansi"            
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
