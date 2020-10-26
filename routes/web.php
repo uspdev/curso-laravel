@@ -170,3 +170,4 @@ Route::get('/livrodeniss/{isbn}', [LivroDenisController::class,'show']);
 Route::resource('livrosandre', LivroAndreController::class);
 Route::get('/livrosandre', [LivroAndreController::class, 'index']);
 Route::get('/livrosandre/{isbn}', [LivroAndreController::class, 'show']);
+Route::resource('/livrosMarceloDaudt', LivroMarceloDaudtController::class);
