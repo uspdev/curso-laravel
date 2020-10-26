@@ -22,12 +22,14 @@ class LivroFactory extends Factory
      */
     public function definition()
     {
+        $tipos = Livro::tipos();
+
         return [
             'titulo'  => $this->faker->sentence(3),
             'isbn'    => $this->faker->ean13(),
             'autor'   => $this->faker->name,
-            'user_id' => User::factory()->create()->id
-
+            'user_id' => User::factory()->create()->id,
+            'tipo'    => $tipos[array_rand($tipos)],
         ];
     }
 }
