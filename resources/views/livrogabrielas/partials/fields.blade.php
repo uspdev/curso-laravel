@@ -22,5 +22,6 @@
       <td><button type="submit" onclick="return confirm('Tem certeza?');">Apagar</button></td> 
       </form>
     </tr>
+    <td> Cadastrado por: {{ $livro->user->name ?? '' }}</td>
   </tbody>
 </table>
