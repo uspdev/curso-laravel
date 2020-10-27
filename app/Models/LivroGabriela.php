@@ -14,4 +14,11 @@ class LivroGabriela extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public static function tipos() {
+        return [
+            'Nacional',
+            'Internacional'
+        ];
+    }
 }

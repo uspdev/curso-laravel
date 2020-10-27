@@ -159,7 +159,7 @@ Route::get('/livrosvictor/{isbn}', [LivroVictorController::class,'show']);
 Route::resource('/livro_celsos', LivroCelsoController::class);
 
 Route::get('/login/senhaunica', [LoginController::class, 'redirectToProvider']);
-Route::get('/logincallback', [LoginController::class, 'handleProviderCallback']);
+Route::get('/callback', [LoginController::class, 'handleProviderCallback']);
 
 Route::resource('/livrosMarceloDaudt', LivroMarceloDaudtController::class);
 Route::get('/livros/{isbn}', [LivroController::class,'show']);
