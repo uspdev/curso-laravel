@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LivroDaniel;
 use Illuminate\Http\Request;
 use \App\Http\Requests\LivroDanielRequest;
+use Auth;
 
 class LivroDanielController extends Controller
 {
@@ -45,6 +46,7 @@ class LivroDanielController extends Controller
         // o método validated retorna somente os valores que passaram
         // pela validação do Request LivroDanielRequest
         $validated = $request->validated();
+        $validated['user_id'] = auth()->user()->id;
         $livro = LivroDaniel::create($validated);
         // Define sessão flash para exibição de mensagem na View
         request()->session()->flash('alert-info', 'Livro cadastrado com sucesso');
@@ -88,6 +90,7 @@ class LivroDanielController extends Controller
     {
 
         $validated = $request->validated();
+        $validated['user_id'] = auth()->user()->id;
         $livros_daniel->update($validated);
         request()->session()->flash('alert-info', 'Livro atualizado com sucesso');
         return redirect('livros_daniel/');

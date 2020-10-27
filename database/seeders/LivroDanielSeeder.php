@@ -20,7 +20,7 @@ class LivroDanielSeeder extends Seeder {
             'isbn' => '1234567891234'
         ];
         LivroDaniel::create($livroDaniel);
-        LivroDaniel::factory(100)->create();
+        LivroDaniel::factory(10)->create();
     }
 
 }
