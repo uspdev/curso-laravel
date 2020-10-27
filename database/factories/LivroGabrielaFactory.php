@@ -29,7 +29,7 @@ class LivroGabrielaFactory extends Factory
             'isbn'   => $this->faker->ean13(),
             'autor'  => $this->faker->name,
             'user_id' => User::factory()->create()->id,
-            #'tipo' => $tipos[array_hand($tipos)]
+            'tipo' => $tipos[array_rand($tipos)],
         ];
     }
 }

@@ -5,6 +5,7 @@
       <th scope="col">Titulo</th>
       <th scope="col">Autor</th> 
       <th scope="col">ISBN</th>
+      <th scope="col">Preço</th>
       <th scope="col">Editar</th>
       <th scope="col">Apagar</th>   
     </tr>
@@ -15,6 +16,7 @@
       <td>{{ $livrogabriela->titulo ?? '' }}</td>
       <td>{{ $livrogabriela->autor ?? '' }}</td>
       <td>{{ $livrogabriela->isbn ?? '' }}</td>
+      <td>{{ $livrogabriela->preco ?? '' }}</td>
       <td><a href="/livrogabrielas/{{$livrogabriela->id}}/edit">editar</a></td>
       <form action="/livrogabrielas/{{ $livrogabriela->id }} " method="post">
         @csrf

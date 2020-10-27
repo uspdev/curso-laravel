@@ -21,4 +21,12 @@ class LivroGabriela extends Model
             'Internacional'
         ];
     }
+
+    public function getPrecoAttribute($preco){
+        return number_format($preco, 2, ',','');
+    }
+
+    public function setPrecoAttribute($preco){
+        $this->attributes['preco'] = str_replace(',','.',$preco);
+    }
 }
