@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\LivroLFloro;
+use App\Models\User;
 
 class LivroLFloroSeeder extends Seeder
 {
@@ -17,10 +18,11 @@ class LivroLFloroSeeder extends Seeder
         $livro = [
             'titulo' => "Quincas Borba",
             'autor' => "Machado de Assis",
-            'isbn' => "9780195106817"
+            'isbn' => "9780195106817",
+            'user_id' => 1,
         ];
 
         LivroLFloro::create($livro);
-        LivroLFloro::factory(100)->create();
+        LivroLFloro::factory(10)->create();
     }
 }
