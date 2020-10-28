@@ -13,9 +13,14 @@ class LivroVictorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $livrosvictor = LivroVictor::all();
+        if(isset($request->search)) {
+            $livrosvictor = LivroVictor::where('autor','LIKE',"%{$request->search}%")
+                            ->orWhere('titulo','LIKE',"%{$request->search}%")->paginate(15);
+        } else {
+            $livrosvictor = LivroVictor::paginate(15);
+        }
         return view('livrosvictor.index',[
             'livrosvictor' => $livrosvictor
         ]);
@@ -28,6 +33,7 @@ class LivroVictorController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin');
         $livrosvictor = new LivroVictor;
         return view('livrosvictor.create', compact('livrosvictor'));
     }
@@ -40,6 +46,7 @@ class LivroVictorController extends Controller
      */
     public function store(LivroVictorRequest $request)
     {
+        $this->authorize('admin');
         $validated = $request->validated();
         $validated['user_id'] = auth()->user()->id;
         $livrosvictor = LivroVictor::create($validated);
@@ -66,6 +73,7 @@ class LivroVictorController extends Controller
      */
     public function edit(LivroVictor $livrosvictor)
     {
+        $this->authorize('admin');
         return view('livrosvictor.edit', ['livrosvictor' => $livrosvictor]);
     }
 
@@ -78,6 +86,7 @@ class LivroVictorController extends Controller
      */
     public function update(LivroVictorRequest $request, LivroVictor $livrosvictor)
     {
+        $this->authorize('admin');
         $validated = $request->validated();
         $validated['user_id'] = auth()->user()->id;
         $livrosvictor->update($validated);
@@ -93,6 +102,7 @@ class LivroVictorController extends Controller
      */
     public function destroy(LivroVictor $livrosvictor)
     {
+        $this->authorize('admin');
         $livrosvictor->delete();
         return redirect("/livrosvictor");
     }

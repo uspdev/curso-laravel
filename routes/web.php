@@ -41,6 +41,7 @@ use App\Http\Controllers\LivroGroffController;
 use App\Http\Controllers\LivroEdmarController;
 
 use App\Http\Controllers\LivroAlessandroOliveiraController;
+use App\Http\Controllers\UserController;
 
 Route::get('/livro_michelets',[LivroMicheletController::class,'index']);
 Route::get('/livro_michelets/{isbn}',[LivroMicheletController::class,'show']);
@@ -106,6 +107,7 @@ Route::get('/livros_marcelomodesto/{isbn}', [LivroMarceloModestoController::clas
 Route::resource('/livrosmasakik', LivroMasakikController::class);
 
 Route::resource('/livros_daniel', LivroDanielController::class);
+Route::get('/home', [LivroDanielController::class, 'index']);
 
 Route::resource('/livros_leandroramos', LivroLeandroRamosController::class)->parameters([
     'livros_leandroramos' => 'livro',
@@ -158,6 +160,7 @@ Route::resource('/livro_celsos', LivroCelsoController::class);
 
 Route::get('/login/senhaunica', [LoginController::class, 'redirectToProvider']);
 Route::get('/logincallback', [LoginController::class, 'handleProviderCallback']);
+Route::get('/callback', [LoginController::class, 'handleProviderCallback']);
 
 Route::resource('/livrosMarceloDaudt', LivroMarceloDaudtController::class);
 Route::get('/livros/{isbn}', [LivroController::class,'show']);
@@ -170,3 +173,7 @@ Route::get('/livrodeniss/{isbn}', [LivroDenisController::class,'show']);
 Route::resource('livrosandre', LivroAndreController::class);
 Route::get('/livrosandre', [LivroAndreController::class, 'index']);
 Route::get('/livrosandre/{isbn}', [LivroAndreController::class, 'show']);
+Route::resource('/livrosMarceloDaudt', LivroMarceloDaudtController::class);
+
+Route::get('/novoadmin', [UserController::class, 'form']);
+Route::post('/novoadmin', [UserController::class, 'register']);
