@@ -2,6 +2,7 @@
     <li>{{ $livro->titulo }}</li>
     <li>{{ $livro->autor }}</li>
     <li>{{ $livro->isbn }}</li>
+    <li>Cadastrado por {{ $livro->user->name ?? '' }}</li>
     <li><a href="/livroslfloro/{{ $livro->id }}/edit"> Editar </a></li>
     <li>
         <form action="/livroslfloro/{{ $livro->id }}" method="POST">
