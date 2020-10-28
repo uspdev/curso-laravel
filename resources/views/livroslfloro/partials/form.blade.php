@@ -14,3 +14,7 @@ ISBN: <input type="text" class="isbn" name="isbn" value="{{ old('isbn', $livro->
 </div>
 @endif
 @endsection
+
+@section ('javascripts_bottom')
+<script type="text/javascript" src="{{ asset('js/livrolfloro.js') }}"></script>
+@endsection

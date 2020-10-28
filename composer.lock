@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b815b0c8003ef0c75e3aaabb157a19e",
+    "content-hash": "ab3385198859bf1acd64a51d0623940d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -330,6 +330,10 @@
                 "sqlserver",
                 "sqlsrv"
             ],
+            "support": {
+                "issues": "https://github.com/doctrine/dbal/issues",
+                "source": "https://github.com/doctrine/dbal/tree/2.12.0"
+            },
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -4982,6 +4986,13 @@
                 }
             ],
             "description": "Uma biblioteca para geração de faker no contexto USP",
+<<<<<<< HEAD
+=======
+            "support": {
+                "issues": "https://github.com/uspdev/laravel-usp-faker/issues",
+                "source": "https://github.com/uspdev/laravel-usp-faker/tree/1.0.6"
+            },
+>>>>>>> upstream/master
             "time": "2020-09-23T20:35:34+00:00"
         },
         {
@@ -5067,6 +5078,13 @@
             ],
             "description": "Classes PHP que consome dados do Replicado USP",
             "homepage": "https://github.com/uspdev/replicado",
+<<<<<<< HEAD
+=======
+            "support": {
+                "issues": "https://github.com/uspdev/replicado/issues",
+                "source": "https://github.com/uspdev/replicado/tree/1.5.12"
+            },
+>>>>>>> upstream/master
             "time": "2020-10-10T23:40:40+00:00"
         },
         {
@@ -7586,5 +7604,5 @@
         "php": "^7.3"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }
