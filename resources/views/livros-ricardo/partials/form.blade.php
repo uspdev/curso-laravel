@@ -14,4 +14,22 @@
   <input type="text" class="form-control isbn" id="isbn" name="isbn" placeholder="Ex: 16516848545" value="{{old('isbn', $livro->isbn)}}">
 </div>
 
+<div class="form-group">
+  <label for="preco">Preço</label>
+  <input type="text" class="form-control preco" id="preco" name="preco" placeholder="Ex: 30,00" value="{{old('preco', $livro->preco)}}">
+</div>
+
+<div class="form-group">
+  <label for="tipo">Tipo</label>
+  <select name="tipo" id="tipo" class="form-control">
+    <option value="" selected>Selecionar</option> 
+    @foreach ($livro::tipos() as $tipo)
+      <option value="{{$tipo}}" 
+          {{ (old('tipo') == '') ? (($livro->tipo == $tipo) ? 'selected' : '') : (old('tipo') == $tipo) ? 'selected' : ''  }}>
+        {{$tipo}}
+      </option>   
+    @endforeach
+  </select>
+</div>
+
   

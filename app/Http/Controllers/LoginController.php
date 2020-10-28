@@ -32,7 +32,7 @@ class LoginController extends Controller
     {
         $userSenhaUnica = Socialite::driver('senhaunica')->user();
 
-        dd($userSenhaUnica);
+       
 
         $user = User::where('codpes',$userSenhaUnica->codpes)->first();
 

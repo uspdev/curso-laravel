@@ -12,6 +12,12 @@
     @if ($livro->isbn !== '')
         <li class="list-group-item">ISBN:  <span class="isbn">{{ $livro->isbn }}</span></li>
     @endif
+    @if ($livro->preco !== '')
+        <li class="list-group-item">Preço:  <span class="preco">{{ $livro->preco }}</span></li>
+    @endif
+    @if ($livro->tipo !== '')
+        <li class="list-group-item">Tipo:  <span class="tipo">{{ $livro->tipo }}</span></li>
+    @endif
     @if ($livro->user != null)
         <li class="list-group-item">Cadastrado por:  {{ $livro->user->name }}</li>
     @endif
