@@ -32,8 +32,6 @@ class LoginController extends Controller
     {
         $userSenhaUnica = Socialite::driver('senhaunica')->user();
 
-        // dd($userSenhaUnica);
-
         $user = User::where('codpes',$userSenhaUnica->codpes)->first();
 
         if (is_null($user)) $user = new User;
