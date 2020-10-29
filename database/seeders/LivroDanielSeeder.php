@@ -17,7 +17,8 @@ class LivroDanielSeeder extends Seeder {
         $livroDaniel = [
             'titulo' => 'Meu primeiro Livro',
             'autor' => 'Daniel Picon',
-            'isbn' => '1234567891234'
+            'isbn' => '1234567891234',
+            'tipo' => 'Nacional'
         ];
         LivroDaniel::create($livroDaniel);
         LivroDaniel::factory(10)->create();
