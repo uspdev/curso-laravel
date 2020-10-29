@@ -1,14 +1,19 @@
-<ul>
-    <li>{{ $livro->titulo }}</li>
-    <li>{{ $livro->autor }}</li>
-    <li>{{ $livro->isbn }}</li>
-    <li>Cadastrado por {{ $livro->user->name ?? '' }}</li>
-    <li><a href="/livroslfloro/{{ $livro->id }}/edit"> Editar </a></li>
-    <li>
+<div class="col-8">
+    <strong>{{ $livro->titulo }}</strong>
+    <ul>
+        <li>{{ $livro->autor }}</li>
+        <li>{{ $livro->isbn }}</li>
+        <li>{{ $livro->tipo }}</li>
+        <li>{{ $livro->preco }}</li>
+        <li>Cadastrado por {{ $livro->user->name ?? '' }}</li>
+    </ul>
+    <p>
         <form action="/livroslfloro/{{ $livro->id }}" method="POST">
+            <a class="btn btn-primary" href="/livroslfloro/{{ $livro->id }}/edit"> Editar </a>
             @csrf
             @method ('delete')
-            <button type="submit" onclick="return confirm('Tem certeza?');"> Apagar </button>
+            <button class="btn btn-danger" type="submit" onclick="return confirm('Tem certeza?');"> Apagar </button>
         </form>
-    </li>
-</ul>
+    </p>
+</div>
+<hr>
