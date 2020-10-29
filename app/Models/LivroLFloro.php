@@ -39,6 +39,9 @@ class LivroLFloro extends Model
 
     public function getIsbnAttribute($isbn)
     {
+        if ((!isset($isbn)) || (empty($isbn))) { 
+            return ""; 
+        }
         //Exemplo baseado no link https://pt.stackoverflow.com/questions/25651/tem-como-colocar-mascara-em-php-dinamicamente
         $isbn_mask = "%s%s%s-%s%s-%s%s%s-%s%s%s%s-%s";
         return vsprintf($isbn_mask, str_split($isbn));
