@@ -1,5 +1,7 @@
 <?php
 
+$rota_menu = (env('APP_FULANO') ?? 'livros');
+
 $submenu1 = [
     [
         'text' => '<i class="fas fa-atom"></i>  SubItem 1',
@@ -59,15 +61,15 @@ return [
     'menu' => [
         [
             'text' => '<i class="fas fa-home"></i> Home',
-            'url' => config('app.url') . '/livros',
+            'url' => config('app.url') . '/' . $rota_menu,
         ],
         [
             'text' => 'Cadastrar livro',
-            'url' => config('app.url') . '/livros/create',
+            'url' => config('app.url') . '/' . $rota_menu . '/create',
         ],
         [
             'text' => 'Acervo',
-            'url' => config('') . '/livros',
+            'url' => config('app.url') . '/' . $rota_menu,
         ],
         [
             'text' => 'Item 3',
