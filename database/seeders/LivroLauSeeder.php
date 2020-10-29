@@ -19,7 +19,6 @@ class LivroLauSeeder extends Seeder
             'autor'  => 'Peter Wohlleben',
             'isbn'   => '9788543104652',
             'tipo'   => 'Livro',
-            'preco'  => '39,90',
         ];
 
         LivroLau::create($livro);

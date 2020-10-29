@@ -29,8 +29,7 @@ class LivroLauFactory extends Factory
             'autor'   => $this->faker->name,
             'isbn'    => $this->faker->ean13(),
             'user_id' => User::factory()->create()->id,
-            'tipo'    => $tipos[array_rand($tipos)],
-            'preco'   => $this->faker->randomFloat,
+            'tipo'    => $tipos[array_rand($tipos)]
         ];
     }
 }
