@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             # Vou deixar comentando de quem fez a parte 4 
             # para não quebrar a migration de quem ainda no replicado
-            UserSeeder::class,
+            #UserSeeder::class,
             #LivroSeeder::class,
             #LivroRicardoSeeder::class,
             #LivroSaotomeSeeder::class,
@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
             LivroDenisSeeder::class,
             LivroGroffSeeder::class,
             LivroAlessandroOliveiraSeeder::class,
-            LivroTapiaSeeder::class, 
+            LivroTapiaSeeder::class,
             LivroDanielSeeder::class
         ]);
     }
