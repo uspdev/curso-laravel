@@ -2,6 +2,8 @@
     <li class="list-group-item active">{{ $livro->titulo ?? '' }}</li>
     <li class="list-group-item">Autor: {{ $livro->autor ?? '' }}</li>
     <li class="list-group-item">ISBN: {{ $livro->isbn ?? '' }}</li>
+    <li class="list-group-item">Tipo: {{ $livro->tipo ?? '' }}</li>
+    <li class="list-group-item">Preço: {{ $livro->preco ?? '' }}</li>
     <li class="list-group-item">Cadastrado por {{ $livro->user->name ?? '' }}</li>
     <li class="list-group-item">
         <ul class="list-inline">
