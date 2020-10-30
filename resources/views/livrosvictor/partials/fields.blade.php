@@ -15,6 +15,6 @@
                 </form>
             </div>
         </div>
-       
-    </li> 
+    </li>
+    <li class="list-group-item">Cadastrado por <b>{{ $livrovictor->user->name ?? '' }}</b></li> 
 </ul>
