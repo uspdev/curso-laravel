@@ -13,9 +13,15 @@ class LivroLauController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $livrolaus = LivroLau::all();
+        if(isset($request->search)) {
+            $livrolaus = LivroLau::where('autor','LIKE',"%{$request->search}%")
+                            ->orWhere('titulo','LIKE',"%{$request->search}%")->paginate(5);
+        } else {
+            $livrolaus = LivroLau::paginate(5);
+        }
+
         return view('livrosLau.index',[
             'livrolaus' => $livrolaus
         ]);
@@ -28,6 +34,7 @@ class LivroLauController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin');
         return view('livrosLau.create',[
             'livrolau' => new LivroLau,
         ]);
@@ -41,6 +48,7 @@ class LivroLauController extends Controller
      */
     public function store(LivrolauRequest $request)
     {
+        $this->authorize('admin');
         $validated = $request->validated();
         $validated['user_id'] = auth()->user()->id;
         $livrolau = LivroLau::create($validated);
@@ -70,6 +78,7 @@ class LivroLauController extends Controller
      */
     public function edit(LivroLau $livrolau)
     {
+        $this->authorize('admin');
         return view('livrosLau.edit',[
             'livrolau' => $livrolau
         ]);
@@ -84,6 +93,7 @@ class LivroLauController extends Controller
      */
     public function update(LivrolauRequest $request, LivroLau $livrolau)
     {
+        $this->authorize('admin');
         $validated = $request->validated();
         $validated['user_id'] = auth()->user()->id;
         $livrolau->update($validated);
@@ -99,6 +109,7 @@ class LivroLauController extends Controller
      */
     public function destroy(LivroLau $livrolau)
     {
+        $this->authorize('admin');
         $livrolau->delete();
         return redirect('/livrolau');
     }
