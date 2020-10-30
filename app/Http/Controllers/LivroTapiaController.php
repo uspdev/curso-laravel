@@ -44,6 +44,7 @@ class LivroTapiaController extends Controller
         //$livro->isbn = $request->isbn;
         //$livro->save();
         $validated = $request->validated();
+        $validated['user_id'] = auth()->user()->id;
         $livro = LivroTapia::create($validated);
         //$livro = Livro::create($request->all());
 
@@ -73,6 +74,7 @@ class LivroTapiaController extends Controller
         // $livrostapium->save();
         
         $validated = $request->validated();
+        $validated['user_id'] = auth()->user()->id;
         $livrostapium->update($validated);
         request()->session()->flash('alert-info','Livro atualizado com sucesso');
 

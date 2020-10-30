@@ -11,7 +11,7 @@ use Auth;
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
-    protected $redirectTo = '/';
+    protected $redirectTo = '/livrostapia';
 
     public function username()
     {
@@ -32,8 +32,11 @@ class LoginController extends Controller
     {
         $userSenhaUnica = Socialite::driver('senhaunica')->user();
 
+<<<<<<< HEAD
        
 
+=======
+>>>>>>> upstream/master
         $user = User::where('codpes',$userSenhaUnica->codpes)->first();
 
         if (is_null($user)) $user = new User;
