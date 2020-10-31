@@ -17,14 +17,17 @@
                 <a class="btn btn-primary" href="/livros-ricardo/{{ $livro->id ?? '' }}">
                     Ver
                 </a>
+                @can('admin')
                 <a class="btn btn-warning" href="/livros-ricardo/{{ $livro->id ?? '' }}/edit">
                     Editar
                 </a>
+                
                 <form action="/livros-ricardo/{{$livro->id}}" method="post" class="d-inline-block">
                     @csrf
                     @method('delete')
                     <button type="submit" onclick="return confirm('Tem certeza?');" class="btn btn-danger ">Deletar</button>
                 </form>
+                @endcan
             </td>
         </tr>
     @empty

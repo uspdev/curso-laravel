@@ -6,12 +6,18 @@ use App\Models\LivroRicardo;
 use Illuminate\Http\Request;
 use App\Http\Requests\LivroRicardoRequest;
 
+
 class LivroRicardoController extends Controller
 {
    
-    public function index()
+    public function index(Request $request)
     {
-        $livros = Livroricardo::all();
+        if(isset(request()->search)){
+            $livros = Livroricardo::where('autor', 'LIKE', "%{$request->search}%")
+                                    ->orWhere('titulo', 'LIKE', "%{$request->search}%")->paginate(5);
+        }else{
+            $livros = Livroricardo::paginate(5);
+        }
         return view('livros-ricardo.index',[
             'livros' => $livros
         ]);
@@ -19,6 +25,7 @@ class LivroRicardoController extends Controller
 
     public function create()
     {
+        $this->authorize('admin');
         return view('livros-ricardo.create',[
             'livro' => new LivroRicardo
         ]);
@@ -54,6 +61,7 @@ class LivroRicardoController extends Controller
 
     public function update(LivroRicardoRequest $request, LivroRicardo $livros_ricardo)
     {
+        $this->authorize('admin');
         $validated = $request->validated();
         if(auth()->user() != null)
             $validated['user_id'] = auth()->user()->id;
@@ -64,6 +72,7 @@ class LivroRicardoController extends Controller
 
     public function destroy(LivroRicardo $livros_ricardo)
     {
+        $this->authorize('admin');
         $livros_ricardo->delete();
         return redirect('/livros-ricardo');
     }
