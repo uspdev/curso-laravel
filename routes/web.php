@@ -107,8 +107,7 @@ Route::get('/livros_ArthurHDR', [LivroArthurHDRController::class, 'index']);
 Route::get('/livros_ArthurHDR/{isbn}', [LivroArthurHDRController::class, 'show']);
 
 
-Route::get('/livros_marcelomodesto', [LivroMarceloModestoController::class, 'index']);
-Route::get('/livros_marcelomodesto/{isbn}', [LivroMarceloModestoController::class, 'show']);
+Route::resource('/livros_marcelomodesto', LivroMarceloModestoController::class);
 
 
 Route::resource('/livrosmasakik', LivroMasakikController::class);
