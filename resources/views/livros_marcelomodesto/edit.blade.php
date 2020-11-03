@@ -3,7 +3,7 @@
 @section('content')
 
     
-    <form>
+    <form method="post" action="/livros_marcelomodesto/{{ $livroMarceloModesto->id}}">
     @csrf
     @method('patch')
     @include('livros_marcelomodesto.partials.form')

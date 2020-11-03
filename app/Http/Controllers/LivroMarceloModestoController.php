@@ -54,11 +54,13 @@ class LivroMarceloModestoController extends Controller
      * @param  \App\Models\LivroMarceloModesto  $livroMarceloModesto
      * @return \Illuminate\Http\Response
      */
-    public function show(LivroMarceloModesto $livroMarceloModesto)
+    public function show(LivroMarceloModesto $livros_marcelomodesto)
     {
 
-        return view('livros_marcelomodesto.show',[
-            'livroMarceloModesto' => $livroMarceloModesto
+
+
+             return view('livros_marcelomodesto.show',[
+            'livroMarceloModesto' => $livros_marcelomodesto
         ]);
     }
 
@@ -68,11 +70,11 @@ class LivroMarceloModestoController extends Controller
      * @param  \App\Models\LivroMarceloModesto  $livroMarceloModesto
      * @return \Illuminate\Http\Response
      */
-    public function edit(LivroMarceloModesto $livroMarceloModesto)
+    public function edit(LivroMarceloModesto $livros_marcelomodesto)
     {
   
         return view('livros_marcelomodesto.edit',[
-            'livroMarceloModesto' => $livroMarceloModesto
+            'livroMarceloModesto' => $livros_marcelomodesto
         ]);
 
   
@@ -88,12 +90,12 @@ class LivroMarceloModestoController extends Controller
      * @param  \App\Models\LivroMarceloModesto  $livroMarceloModesto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LivroMarceloModesto $livroMarceloModesto)
+    public function update(Request $request, LivroMarceloModesto $livros_marcelomodesto)
     {
-        $livroMarceloModesto->titulo = $request->titulo;
-        $livroMarceloModesto->autor = $request->autor;
-        $livroMarceloModesto->isbn = $request->isbn;
-        $livroMarceloModesto->save();
+        $livros_marcelomodesto->titulo = $request->titulo;
+        $livros_marcelomodesto->autor = $request->autor;
+        $livros_marcelomodesto->isbn = $request->isbn;
+        $livros_marcelomodesto->save();
         return redirect("/livros_marcelomodesto");
     }
 
