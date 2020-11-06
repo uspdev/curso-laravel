@@ -15,4 +15,27 @@ class LivroLau extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public static function tipos(){
+        return [
+            'Livro',
+            'Panfleto',
+            'Tese',
+            'Periódico',
+            'Artigo de Periódico',
+            'Manuscrito',
+            'Iconográfico',
+            'Audiovisual',
+            'Música (Som)',
+            'Partitura'
+        ];
+    }
+
+    public function setPrecoAttribute($preco){
+        $this->attributes['preco'] = str_replace(',','.',$preco);
+    }
+    
+    public function getPrecoAttribute($preco){
+        return number_format($preco, 2, ',', '');
+    }
 }

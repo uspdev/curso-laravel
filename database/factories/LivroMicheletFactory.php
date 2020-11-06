@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\LivroMichelet;
+use App\Models\LivroMarceloModesto;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class LivroMicheletFactory extends Factory
@@ -12,7 +12,7 @@ class LivroMicheletFactory extends Factory
      *
      * @var string
      */
-    protected $model = LivroMichelet::class;
+    protected $model = LivroMarceloModesto::class;
 
     /**
      * Define the model's default state.

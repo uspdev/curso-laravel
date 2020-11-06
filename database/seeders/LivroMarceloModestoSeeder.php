@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\LivroMarceloModesto;
 
 class LivroMarceloModestoSeeder extends Seeder
 {
@@ -15,11 +14,11 @@ class LivroMarceloModestoSeeder extends Seeder
     public function run()
     {
         $livro = [
-                'titulo' => "Quincas Borba",
-                'autor'  => "Machado de Assis",
-                'isbn'   => "9780195106817"
+            'titulo' => "Quincas Borba",
+            'autor'  => "Machado de Assis",
+            'isbn'   => "9780195106817"
         ];
-        LivroMarceloModesto::create($livro);
-        LivroMarceloModesto::factory(100)->create();
+        \App\Models\LivroMarceloModesto::create($livro);
+        \App\Models\LivroMarceloModesto::factory(15)->create();
     }
 }

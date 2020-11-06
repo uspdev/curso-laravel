@@ -21,6 +21,6 @@ class LivroSaotomeSeeder extends Seeder
             'isbn'   => "9780075535744"
         ];
         LivroSaotome::create($livroSaotome);
-        LivroSaotome::factory(15)->create();
+        LivroSaotome::factory(10)->create();
     }
 }
