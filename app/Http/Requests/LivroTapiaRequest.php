@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use App\Models\LivroTapia;
 
 class LivroTapiaRequest extends FormRequest
 {
@@ -26,7 +28,9 @@ class LivroTapiaRequest extends FormRequest
         $rules = [
             'titulo' => 'required',            
             'autor' => 'nullable',
-            'isbn' => ['required', 'integer']
+            'isbn' => ['required', 'integer'],
+            'tipo' => ['required', Rule::in(LivroTapia::tipos())],
+            'preco' => ['nullable']
         ];
 
         if ($this->method() == 'PATCH' || $this->method() == 'PUT') {
@@ -43,6 +47,15 @@ class LivroTapiaRequest extends FormRequest
         $this->merge([
             'isbn' => preg_replace('/[^0-9]/', '', $this->isbn),
         ]);
+    }
+
+    
+    public function getPrecoAttribute($value) {
+        return number_format($value, 2, ',', '');        
+    }
+    
+    public function setPrecoAttribute($value) {
+        $this->attributes['preco'] = str_replace(',', '.', $value);
     }
 
     public function messages()
