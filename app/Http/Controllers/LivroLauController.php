@@ -42,6 +42,7 @@ class LivroLauController extends Controller
     public function store(LivrolauRequest $request)
     {
         $validated = $request->validated();
+        $validated['user_id'] = auth()->user()->id;
         $livrolau = LivroLau::create($validated);
         request()->session()->flash('alert-success','Livro Cadastrado com Sucesso!');
 
@@ -84,6 +85,7 @@ class LivroLauController extends Controller
     public function update(LivrolauRequest $request, LivroLau $livrolau)
     {
         $validated = $request->validated();
+        $validated['user_id'] = auth()->user()->id;
         $livrolau->update($validated);
         request()->session()->flash('alert-info','Livro Atualizado com Sucesso!');
         return redirect("/livrolau/{$livrolau->id}");

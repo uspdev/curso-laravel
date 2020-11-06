@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LivroMarceloDaudt;
 use Illuminate\Http\Request;
+use App\Http\Requests\LivroRequestMarceloDaudt;
 
 class LivroMarceloDaudtController extends Controller
 {
@@ -23,22 +24,13 @@ class LivroMarceloDaudtController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(LivroRequestMarceloDaudt $request)
     {
-        $livro = new LivroMarceloDaudt;
-        $livro->titulo = $request->titulo;
-        $livro->autor = $request->autor;
-        $livro->isbn = $request->isbn;
-        $livro->save();
+        $validated = $request->validated();
+        $livro = LivroMarceloDaudt::create($validated);
+        request()->session()->flash('alert-info','Livro cadastrado com sucesso');
         return redirect("/livrosMarceloDaudt/{$livro->id}");
     }
-
-//   public function show(LivroMarceloDaudt $livro)
-//    {
-//        return view('livros_marcelo_daudt.show',[
-//            'livro' => $livro
-//        ]);
-//   }
 
     public function show($id)
     {
@@ -55,12 +47,11 @@ class LivroMarceloDaudtController extends Controller
         ]);
     }
 
-    public function update(Request $request, LivroMarceloDaudt $livrosMarceloDaudt)
+    public function update(LivroRequestMarceloDaudt $request, LivroMarceloDaudt $livrosMarceloDaudt)
     {
-        $livrosMarceloDaudt->titulo = $request->titulo;
-        $livrosMarceloDaudt->autor = $request->autor;
-        $livrosMarceloDaudt->isbn = $request->isbn;
-        $livrosMarceloDaudt->save();
+        $validated = $request->validated();
+        $livrosMarceloDaudt->update($validated);
+        request()->session()->flash('alert-info','Livro atualizado com sucesso');
         return redirect("/livrosMarceloDaudt/{$livrosMarceloDaudt->id}");
     }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LivroDaniel;
 use Illuminate\Http\Request;
 use \App\Http\Requests\LivroDanielRequest;
+use Auth;
 
 class LivroDanielController extends Controller
 {
@@ -14,9 +15,15 @@ class LivroDanielController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $livros = LivroDaniel::all();
+        $this->authorize('logged');
+        if (isset($request->search)) {
+            $livros = LivroDaniel::where('autor', 'LIKE', "%{$request->search}%")
+                ->orWhere('titulo', 'LIKE', "%{$request->search}%")->paginate(5);
+        } else {
+            $livros = LivroDaniel::paginate(5);
+        }
         return view('livros_daniel.index', [
             'livros' => $livros
         ]);
@@ -29,6 +36,7 @@ class LivroDanielController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin');
         return view('livros_daniel.create', [
             'livro' => new LivroDaniel
         ]);
@@ -45,6 +53,7 @@ class LivroDanielController extends Controller
         // o método validated retorna somente os valores que passaram
         // pela validação do Request LivroDanielRequest
         $validated = $request->validated();
+        $validated['user_id'] = auth()->user()->id;
         $livro = LivroDaniel::create($validated);
         // Define sessão flash para exibição de mensagem na View
         request()->session()->flash('alert-info', 'Livro cadastrado com sucesso');
@@ -72,6 +81,7 @@ class LivroDanielController extends Controller
      */
     public function edit(LivroDaniel $livros_daniel)
     {
+        $this->authorize('admin');
         return view('livros_daniel.edit', [
             'livro' => $livros_daniel,
         ]);
@@ -88,6 +98,7 @@ class LivroDanielController extends Controller
     {
 
         $validated = $request->validated();
+        $validated['user_id'] = auth()->user()->id;
         $livros_daniel->update($validated);
         request()->session()->flash('alert-info', 'Livro atualizado com sucesso');
         return redirect('livros_daniel/');
@@ -104,5 +115,4 @@ class LivroDanielController extends Controller
         $livros_daniel->delete();
         return redirect('livros_daniel');
     }
-
 }
