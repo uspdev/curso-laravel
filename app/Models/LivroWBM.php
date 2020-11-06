@@ -10,9 +10,10 @@ class LivroWBM extends Model
     use HasFactory;
 
     protected $table = 'livroswbm';
-    protected $fillable = [
-    'titulo',
-    'autor',
-    'isbn',
+    //protected $guarded = ['id'];
+    protected $fillable = [        
+        'titulo',
+        'autor',
+        'isbn',
     ];
 }
