@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\Models\LivroGabriela;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
+
 
 class LivroGabrielaFactory extends Factory
 {
@@ -24,7 +26,8 @@ class LivroGabrielaFactory extends Factory
         return [
             'titulo' => $this->faker->sentence(3),
             'isbn'   => $this->faker->ean13(),
-            'autor'  => $this->faker->name
+            'autor'  => $this->faker->name,
+            'user_id' => User::factory()->create()->id
         ];
     }
 }

@@ -2,7 +2,10 @@
 
 @section('content')
 
-@forelse($livros as $livro)
+<a href="/livros_marcelomodesto/create">Criar novo livro</a>
+
+
+@forelse($livrosMarceloModesto as $livroMarceloModesto)
 
 @include('livros_marcelomodesto.partials.fields')
 <br>
