@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             #LivroLauSeeder::class,
             #LivroGabrielaSeeder::class,
             #LivroLFloroSeeder::class,
-            #LivroTapiaSeeder::class,
+            LivroTapiaSeeder::class,
             #LivroDanielSeeder::class
             LivroMicheletSeeder::class,
             LivroLeonardoSeeder::class,
