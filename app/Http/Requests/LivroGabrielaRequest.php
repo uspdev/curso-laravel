@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\LivroGabriela;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class LivroGabrielaRequest extends FormRequest
 {
@@ -26,7 +28,9 @@ class LivroGabrielaRequest extends FormRequest
         $rules = [
             'titulo' => 'required',
             'autor' => 'nullable', 
-            'isbn' => ['required', 'integer'] ,
+            'isbn' => ['required', 'integer'],
+            'tipo' => ['required', Rule::in(LivroGabriela::tipos())],
+            'preco' => 'nullable'
         ];
 
         if($this->method() == 'PATCH' || $this->method() == 'PUT'){
