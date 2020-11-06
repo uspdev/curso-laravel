@@ -15,13 +15,17 @@ use App\Http\Controllers\LivroSaotomeController;
 use App\Http\Controllers\LivroControllerSaotome;
 use App\Http\Controllers\LivroFabioFDRPController;
 use App\Http\Controllers\LivroLauController;
-use App\Http\Controllers\LivroRicardoController;
+
 use App\Http\Controllers\LivroMarisaController;
 use App\Http\Controllers\LivroVictorController;
 use App\Http\Controllers\LivroAndreController;
 use App\Http\Controllers\LivroCelsoController;
 use App\Http\Controllers\LivroFredController;
 use App\Http\Controllers\LivroMasakikController;
+
+//Ricardo
+use App\Http\Controllers\LivroRicardoController;
+use App\Http\Controllers\LivroRicardoUserController;
 
 // Daniel
 use App\Http\Controllers\LivroDanielController;
@@ -79,7 +83,11 @@ Route::get('/livrossaotome/{isbn}', [LivroSaotomeController::class, 'show']);
 Route::resource('/livrolau', LivroLauController::class);
 
 
+
+Route::get('/livros-ricardo/novoadmin', [LivroRicardoUserController::class, 'form']);
+Route::post('/livros-ricardo/novoadmin', [LivroRicardoUserController::class, 'register']);
 Route::resource('livros-ricardo', LivroRicardoController::class);
+
 
 Route::get('/livrosmarisa', [LivroMarisaController::class, 'index']);
 Route::get('/livrosmarisa/{isbn}', [LivroMarisaController::class, 'show']);
