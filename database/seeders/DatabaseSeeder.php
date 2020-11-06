@@ -18,22 +18,33 @@ class DatabaseSeeder extends Seeder
             # Vou deixar comentando de quem fez a parte 4 
             # para não quebrar a migration de quem ainda no replicado
             UserSeeder::class,
+            LivroSeeder::class,
+            LivroRicardoSeeder::class,
             #LivroSeeder::class,
             #LivroRicardoSeeder::class,
+
             #LivroSaotomeSeeder::class,
-            #LivroVictorSeeder::class,
+            LivroVictorSeeder::class,
             #LivroMarisaSeeder::class,
             #LivroLauSeeder::class,
             LivroGabrielaSeeder::class,
+            LivroLauSeeder::class,
+            #LivroGabrielaSeeder::class,
+            #LivroLFloroSeeder::class,
+            LivroTapiaSeeder::class,
+            #LivroDanielSeeder::class
             #LivroMicheletSeeder::class,
             #LivroLeonardoSeeder::class,
             #LivroMarisaSeeder::class,
             #LivroCelsoSeeder::class,
             #LivroFabioFDRPSeeder::class,
-			#LivroAndreSeeder::class,
+			      #LivroAndreSeeder::class,
             #LivromasakikSeeder::class,
             #LivroMarceloDaudtSeeder::class,
             #LivroLFloroSeeder::class,
+            #LivroAndreSeeder::class,
+            #LivromasakikSeeder::class,
+            #LivroMarceloDaudtSeeder::class,
             #LivroEbonilhaSeeder::class,
             #LivroFernandoSeeder::class,
             #LivroWillSeeder::class,
@@ -42,6 +53,27 @@ class DatabaseSeeder extends Seeder
             #LivroGroffSeeder::class,
             #LivroAlessandroOliveiraSeeder::class,
             #LivroTapiaSeeder::class
+            #LivroAlessandroOliveiraSeeder::class
+
+            LivroMicheletSeeder::class,
+            LivroLeonardoSeeder::class,
+            LivroMarisaSeeder::class,
+            LivroCelsoSeeder::class,
+            LivroFabioFDRPSeeder::class,
+            LivroAndreSeeder::class,
+            LivromasakikSeeder::class,
+            LivroMarceloDaudtSeeder::class,
+            LivroEbonilhaSeeder::class,
+            LivroFernandoSeeder::class,
+            LivroWillSeeder::class,
+            LivroAlessandroOliveiraSeeder::class,
+            LivroDenisSeeder::class,
+            LivroGroffSeeder::class,
+            LivroAlessandroOliveiraSeeder::class,
+            LivroTapiaSeeder::class,
+            LivroWBMSeeder::class,
+            LivroAlessandroOliveiraSeeder::class
+
         ]);
     }
 }

@@ -15,14 +15,22 @@ use App\Http\Controllers\LivroSaotomeController;
 use App\Http\Controllers\LivroControllerSaotome;
 use App\Http\Controllers\LivroFabioFDRPController;
 use App\Http\Controllers\LivroLauController;
-use App\Http\Controllers\LivroRicardoController;
+
 use App\Http\Controllers\LivroMarisaController;
 use App\Http\Controllers\LivroVictorController;
 use App\Http\Controllers\LivroAndreController;
 use App\Http\Controllers\LivroCelsoController;
 use App\Http\Controllers\LivroFredController;
 use App\Http\Controllers\LivroMasakikController;
+
+//Ricardo
+use App\Http\Controllers\LivroRicardoController;
+use App\Http\Controllers\LivroRicardoUserController;
+
+// Daniel
 use App\Http\Controllers\LivroDanielController;
+use App\Http\Controllers\LivroDanielUserController;
+
 use App\Http\Controllers\LivroLeandroRamosController;
 use App\Http\Controllers\LivroMarceloDaudtController;
 
@@ -41,6 +49,10 @@ use App\Http\Controllers\LivroGroffController;
 use App\Http\Controllers\LivroEdmarController;
 
 use App\Http\Controllers\LivroAlessandroOliveiraController;
+
+
+Route::get('/login/senhaunica', [LoginController::class, 'redirectToProvider']);
+Route::get('/callback', [LoginController::class, 'handleProviderCallback']);
 
 Route::get('/livro_michelets',[LivroMicheletController::class,'index']);
 Route::get('/livro_michelets/{isbn}',[LivroMicheletController::class,'show']);
@@ -71,7 +83,11 @@ Route::get('/livrossaotome/{isbn}', [LivroSaotomeController::class, 'show']);
 Route::resource('/livrolau', LivroLauController::class);
 
 
+
+Route::get('/livros-ricardo/novoadmin', [LivroRicardoUserController::class, 'form']);
+Route::post('/livros-ricardo/novoadmin', [LivroRicardoUserController::class, 'register']);
 Route::resource('livros-ricardo', LivroRicardoController::class);
+
 
 Route::get('/livrosmarisa', [LivroMarisaController::class, 'index']);
 Route::get('/livrosmarisa/{isbn}', [LivroMarisaController::class, 'show']);
@@ -99,13 +115,16 @@ Route::get('/livros_ArthurHDR', [LivroArthurHDRController::class, 'index']);
 Route::get('/livros_ArthurHDR/{isbn}', [LivroArthurHDRController::class, 'show']);
 
 
-Route::get('/livros_marcelomodesto', [LivroMarceloModestoController::class, 'index']);
-Route::get('/livros_marcelomodesto/{isbn}', [LivroMarceloModestoController::class, 'show']);
-
+Route::resource('/livros_marcelomodesto', LivroMarceloModestoController::class);
 
 Route::resource('/livrosmasakik', LivroMasakikController::class);
 
+// Daniel
+Route::get('/livros_daniel/novoadmin', [LivroDanielUserController::class, 'form']);
+Route::post('/livros_daniel/novoadmin', [LivroDanielUserController::class, 'register']);
 Route::resource('/livros_daniel', LivroDanielController::class);
+Route::get('/home', [LivroDanielController::class, 'index']);
+
 
 Route::resource('/livros_leandroramos', LivroLeandroRamosController::class)->parameters([
     'livros_leandroramos' => 'livro',
@@ -149,6 +168,7 @@ Route::get('/livros_alessandrooliveira/{livro}', [LivroAlessandroOliveiraControl
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
+Route::get('/', [LivroController::class, 'index']);
 Route::post('logout', [LoginController::class, 'logout']);
 
 Route::get('/livrosvictor', [LivroVictorController::class,'index']);
@@ -157,6 +177,8 @@ Route::get('/livrosvictor/{isbn}', [LivroVictorController::class,'show']);
 Route::resource('/livro_celsos', LivroCelsoController::class);
 
 Route::get('/login/senhaunica', [LoginController::class, 'redirectToProvider']);
+Route::get('/logincallback', [LoginController::class, 'handleProviderCallback']);
+
 Route::get('/callback', [LoginController::class, 'handleProviderCallback']);
 
 Route::resource('/livrosMarceloDaudt', LivroMarceloDaudtController::class);
@@ -171,3 +193,4 @@ Route::resource('livrosandre', LivroAndreController::class);
 Route::get('/livrosandre', [LivroAndreController::class, 'index']);
 Route::get('/livrosandre/{isbn}', [LivroAndreController::class, 'show']);
 Route::resource('/livrosMarceloDaudt', LivroMarceloDaudtController::class);
+

@@ -21,12 +21,13 @@ class LivroSaotomeFactory extends Factory
      * @return array
      */
     public function definition()
-    {
+    {   $tipos = LivroSaotome::tipos();
         return [
             'titulo' => $this->faker->sentence(3),
             'autor'  => $this->faker->name,
             'isbn'   => $this->faker->ean13(),
             'user_id'=> User::factory()->create()->id,
+            'tipo'   => $tipos[array_rand($tipos)],
         ];
     }
 }

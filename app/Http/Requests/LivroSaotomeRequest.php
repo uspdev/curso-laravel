@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use App\Models\LivroSaotome;
 
 class LivroSaotomeRequest extends FormRequest
 {
@@ -24,12 +26,14 @@ class LivroSaotomeRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'titulo' => 'required',
+            'titulo'=> 'required',
             'autor' => 'nullable',
-            'isbn' => ['required', 'integer'],
+            'isbn'  => ['required', 'integer'],
+            'tipo'  => ['required', Rule::in(LivroSaotome::tipos())],
+            'preco' => 'nullable',
         ];
 
-        if($this->method() == 'PATCH' || $this->method() == 'PUT'){
+        if ($this->method() == 'PATCH' || $this->method() == 'PUT'){
             array_push($rules['isbn'], 'unique:livro_saotomes,isbn,' . $this->livrossaotome->id);
         }
 
