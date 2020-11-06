@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class LivroDanielRequest extends FormRequest
 {
@@ -27,7 +28,9 @@ class LivroDanielRequest extends FormRequest
         $rules = [
             'titulo' => 'required',
             'autor' => 'required',
-            'isbn' => ['required', 'integer']
+            'isbn' => ['required', 'integer'], 
+            'tipo'   => ['required', Rule::in(\App\Models\Livro::tipos())], 
+            'preco' => 'nullable'
         ];
         /**
          * Como o isbn deve ser único, podemos inserir essa validação. Porém, 

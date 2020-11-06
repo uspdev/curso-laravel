@@ -11,7 +11,7 @@ use Auth;
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
-    protected $redirectTo = '/';
+    protected $redirectTo = '/livrostapia';
 
     public function username()
     {

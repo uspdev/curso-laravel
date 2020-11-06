@@ -20,6 +20,6 @@ class LivroTapiaSeeder extends Seeder
             'isbn'       => "9780195106817"
         ];
         \App\Models\LivroTapia::create($livro);
-        \App\Models\LivroTapia::factory(150)->create();
+        \App\Models\LivroTapia::factory(50)->create();
     }
 }

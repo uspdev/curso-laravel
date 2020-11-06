@@ -15,9 +15,15 @@ class LivroDanielController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $livros = LivroDaniel::all();
+        $this->authorize('logged');
+        if (isset($request->search)) {
+            $livros = LivroDaniel::where('autor', 'LIKE', "%{$request->search}%")
+                ->orWhere('titulo', 'LIKE', "%{$request->search}%")->paginate(5);
+        } else {
+            $livros = LivroDaniel::paginate(5);
+        }
         return view('livros_daniel.index', [
             'livros' => $livros
         ]);
@@ -30,6 +36,7 @@ class LivroDanielController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin');
         return view('livros_daniel.create', [
             'livro' => new LivroDaniel
         ]);
@@ -74,6 +81,7 @@ class LivroDanielController extends Controller
      */
     public function edit(LivroDaniel $livros_daniel)
     {
+        $this->authorize('admin');
         return view('livros_daniel.edit', [
             'livro' => $livros_daniel,
         ]);
@@ -107,5 +115,4 @@ class LivroDanielController extends Controller
         $livros_daniel->delete();
         return redirect('livros_daniel');
     }
-
 }
