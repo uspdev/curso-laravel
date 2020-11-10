@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LivroLFloroRequest;
 use App\Models\LivroLFloro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 
 //use Illuminate\Support\Facades\Validator;
@@ -37,6 +38,7 @@ class LivroLFloroController extends Controller
      */
     public function create()
     {
+        Gate::authorize('admin');
         return view('livroslfloro.create', [
             'livro' => new LivroLFloro
         ]);
@@ -78,6 +80,7 @@ class LivroLFloroController extends Controller
      */
     public function edit(LivroLFloro $livroslfloro)
     {
+        Gate::authorize('admin');
         return view('livroslfloro.edit', [
             'livro' => $livroslfloro
         ]);
@@ -107,6 +110,7 @@ class LivroLFloroController extends Controller
      */
     public function destroy($livroId)
     {
+        Gate::authorize('admin');
         $livro = LivroLFloro::find($livroId);
         $livro->delete();
         return redirect('/livroslfloro');

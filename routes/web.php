@@ -49,13 +49,13 @@ use App\Http\Controllers\LivroGroffController;
 use App\Http\Controllers\LivroEdmarController;
 
 use App\Http\Controllers\LivroAlessandroOliveiraController;
-
+use App\Http\Controllers\LivroLFloroUserController;
 
 Route::get('/login/senhaunica', [LoginController::class, 'redirectToProvider']);
 Route::get('/callback', [LoginController::class, 'handleProviderCallback']);
 
-Route::get('/livro_michelets',[LivroMicheletController::class,'index']);
-Route::get('/livro_michelets/{isbn}',[LivroMicheletController::class,'show']);
+Route::get('/livro_michelets', [LivroMicheletController::class, 'index']);
+Route::get('/livro_michelets/{isbn}', [LivroMicheletController::class, 'show']);
 
 Route::get('/', [IndexController::class, 'index']);
 
@@ -94,7 +94,7 @@ Route::get('/livrosmarisa/{isbn}', [LivroMarisaController::class, 'show']);
 
 
 
-Route::get('/livros', [LivroController::class,'index']);
+Route::get('/livros', [LivroController::class, 'index']);
 
 Route::resource('livrosvictor', LivroVictorController::class);
 
@@ -130,15 +130,12 @@ Route::resource('/livros_leandroramos', LivroLeandroRamosController::class)->par
     'livros_leandroramos' => 'livro',
 ]);
 
+Route::get('livroslfloro/novoadmin', [LivroLFloroUserController::class, 'form']);
+Route::post('/livroslfloro/novoadmin', [LivroLFloroUserController::class, 'register']);
 Route::resource('/livroslfloro', LivroLFloroController::class);
-//Route::get('/livroslfloro', [LivroLFloroController::class, 'index']);
-//Route::get('/livroslfloro/{isbn}', [LivroLFloroController::class, 'show']);
 
-Route::get('/livros_MarceloDaudt', [LivroMarceloDaudtController::class,'index']);
+Route::get('/livros_MarceloDaudt', [LivroMarceloDaudtController::class, 'index']);
 Route::get('/livros_MarceloDaudt/{isbn}', [LivroMarceloDaudtController::class, 'show']);
-
-Route::get('/livroslfloro', [LivroLFloroController::class, 'index']);
-Route::get('/livroslfloro/{isbn}', [LivroLFloroController::class, 'show']);
 
 Route::resource('/livros_ebonilha', LivroEbonilhaController::class);
 
@@ -153,13 +150,13 @@ Route::resource('/livro_priscilas', LivroPriscilaController::class);
 Route::get('/livro_wills', [LivroWillController::class, 'index']);
 Route::get('/livro_wills/{livro}', [LivroWillController::class, 'show'])->name('will.show');
 
-Route::get('/livro_groffs',[LivroGroffController::class,'index']);
-Route::get('/livro_groffs/{isbn}',[LivroGroffController::class,'show']);
+Route::get('/livro_groffs', [LivroGroffController::class, 'index']);
+Route::get('/livro_groffs/{isbn}', [LivroGroffController::class, 'show']);
 
-Route::get('/livrosfred',[LivroFredController::class,'index']);
-Route::get('/livrosfred/{isbn}',[LivroFredController::class,'show']);
+Route::get('/livrosfred', [LivroFredController::class, 'index']);
+Route::get('/livrosfred/{isbn}', [LivroFredController::class, 'show']);
 
-Route::resource('/livroedmar',LivroEdmarController::class);
+Route::resource('/livroedmar', LivroEdmarController::class);
 
 Route::get('/livros_alessandrooliveira', [LivroAlessandroOliveiraController::class, 'index']);
 
@@ -171,8 +168,8 @@ Route::post('login', [LoginController::class, 'login']);
 Route::get('/', [LivroController::class, 'index']);
 Route::post('logout', [LoginController::class, 'logout']);
 
-Route::get('/livrosvictor', [LivroVictorController::class,'index']);
-Route::get('/livrosvictor/{isbn}', [LivroVictorController::class,'show']);
+Route::get('/livrosvictor', [LivroVictorController::class, 'index']);
+Route::get('/livrosvictor/{isbn}', [LivroVictorController::class, 'show']);
 
 Route::resource('/livro_celsos', LivroCelsoController::class);
 
@@ -182,15 +179,14 @@ Route::get('/logincallback', [LoginController::class, 'handleProviderCallback'])
 Route::get('/callback', [LoginController::class, 'handleProviderCallback']);
 
 Route::resource('/livrosMarceloDaudt', LivroMarceloDaudtController::class);
-Route::get('/livros/{isbn}', [LivroController::class,'show']);
+Route::get('/livros/{isbn}', [LivroController::class, 'show']);
 
-Route::get('/livrodeniss', [LivroDenisController::class,'index']);
+Route::get('/livrodeniss', [LivroDenisController::class, 'index']);
 
-Route::get('/livrodeniss/{isbn}', [LivroDenisController::class,'show']);
+Route::get('/livrodeniss/{isbn}', [LivroDenisController::class, 'show']);
 
 
 Route::resource('livrosandre', LivroAndreController::class);
 Route::get('/livrosandre', [LivroAndreController::class, 'index']);
 Route::get('/livrosandre/{isbn}', [LivroAndreController::class, 'show']);
 Route::resource('/livrosMarceloDaudt', LivroMarceloDaudtController::class);
-
