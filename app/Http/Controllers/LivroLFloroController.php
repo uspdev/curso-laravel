@@ -16,9 +16,15 @@ class LivroLFloroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $livros = LivroLFloro::all();
+        if (isset($request->search)) {
+            $livros = LivroLFloro::where('autor', 'LIKE', "%{$request->search}%")
+                ->orWhere('titulo', 'LIKE', "%{$request->search}%")->paginate(5);
+        } else {
+            $livros = LivroLFloro::paginate(5);
+        }
+
         return view('livroslfloro.index', [
             'livros' => $livros
         ]);
