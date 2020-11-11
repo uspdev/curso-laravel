@@ -1,7 +1,7 @@
 <?php
-
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
+
 use App\Http\Controllers\LivroLeonardoController;
 
 use App\Http\Controllers\LivroGabrielaController;
@@ -193,4 +193,3 @@ Route::resource('livrosandre', LivroAndreController::class);
 Route::get('/livrosandre', [LivroAndreController::class, 'index']);
 Route::get('/livrosandre/{isbn}', [LivroAndreController::class, 'show']);
 Route::resource('/livrosMarceloDaudt', LivroMarceloDaudtController::class);
-

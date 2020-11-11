@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
             #LivroAlessandroOliveiraSeeder::class,
             #LivroTapiaSeeder::class
             #LivroAlessandroOliveiraSeeder::class
-            #LivroTapiaSeeder::class,
+            LivroTapiaSeeder::class,
             #LivroFernandoSeeder::class,
             LivroMicheletSeeder::class,
             LivroLeonardoSeeder::class,

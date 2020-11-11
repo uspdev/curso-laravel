@@ -17,6 +17,15 @@ class AuthServiceProvider extends ServiceProvider
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
     ];
 
+
+    public function form()
+    {
+        //$this->authorize('admin');
+
+        $this->logged();
+
+    }
+
     /**
      * Register any authentication / authorization services.
      *

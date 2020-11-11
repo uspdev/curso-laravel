@@ -8,8 +8,16 @@ use App\Http\Requests\LivroTapiaRequest;
 
 class LivroTapiaController extends Controller
 {
-    public function index() {
-        $livros = LivroTapia::all();
+    public function index(Request $request) {
+        
+        if (isset(request()->search)) {
+            $livros = LivroTapia::where('autor', 'LIKE', "%{$request->search}%")
+                                ->orWhere('titulo', 'LIKE', "%{$request->search}%")->paginate(5);
+        } else {
+            //$livros = LivroTapia::all(5);
+            $livros = LivroTapia::paginate(5);
+        }
+
         return view('livrotapia.index', [
             'livros' => $livros
         ]);
@@ -84,6 +92,7 @@ class LivroTapiaController extends Controller
 
     public function destroy(LivroTapia $livrostapium)
     {
+        $this->authorize('admin');
         $livrostapium->delete();
         return redirect('/livrostapia');
     }
