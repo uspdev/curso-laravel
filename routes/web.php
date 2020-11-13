@@ -1,7 +1,7 @@
 <?php
-
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
+
 use App\Http\Controllers\LivroLeonardoController;
 
 use App\Http\Controllers\LivroGabrielaController;
@@ -194,4 +194,3 @@ Route::resource('/livrosMarceloDaudt', LivroMarceloDaudtController::class);
 
 Route::get('/novoadmin', [UserController::class, 'form']);
 Route::post('/novoadmin', [UserController::class, 'register']);
-

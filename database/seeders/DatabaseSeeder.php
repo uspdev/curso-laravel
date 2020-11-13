@@ -60,7 +60,7 @@ class DatabaseSeeder extends Seeder
             #LivroDanielSeeder::class
             #LivroTapiaSeeder::class
             #LivroAlessandroOliveiraSeeder::class
-            #LivroTapiaSeeder::class,
+            LivroTapiaSeeder::class,
             #LivroFernandoSeeder::class,
             LivroMicheletSeeder::class,
             LivroLeonardoSeeder::class,
