@@ -49,6 +49,7 @@ use App\Http\Controllers\LivroGroffController;
 use App\Http\Controllers\LivroEdmarController;
 
 use App\Http\Controllers\LivroAlessandroOliveiraController;
+use App\Http\Controllers\UserController;
 
 
 Route::get('/login/senhaunica', [LoginController::class, 'redirectToProvider']);
@@ -194,3 +195,5 @@ Route::get('/livrosandre', [LivroAndreController::class, 'index']);
 Route::get('/livrosandre/{isbn}', [LivroAndreController::class, 'show']);
 Route::resource('/livrosMarceloDaudt', LivroMarceloDaudtController::class);
 
+Route::get('/novoadmin', [UserController::class, 'form']);
+Route::post('/novoadmin', [UserController::class, 'register']);

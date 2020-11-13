@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class LivroVictorRequest extends FormRequest
 {
@@ -28,6 +29,8 @@ class LivroVictorRequest extends FormRequest
             'titulo' => 'required',
             'autor'  => 'required',
             'isbn' => ['required','integer'],
+            'tipo' => ['required', Rule::in(\App\Models\LivroVictor::tipos())],
+            'preco' => 'nullable',
         ];
         if ($this->method() == 'PATCH' || $this->method() == 'PUT'){
             array_push($rules['isbn'], 'unique:livros,isbn,' .$this->livrosvictor->id);

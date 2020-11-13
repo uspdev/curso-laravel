@@ -18,6 +18,7 @@ class LivroVictorSeeder extends Seeder
             'titulo' => "Quincas Borba",
             'autor'  => "Machado de Assis",
             'isbn'   => "9780195106817",
+            'tipo'   => "Nacional",
             'user_id' => User::factory()->create()->id,
         ];
         LivroVictor::create($livro);
