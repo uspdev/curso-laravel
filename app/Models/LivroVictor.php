@@ -13,4 +13,19 @@ class LivroVictor extends Model
     public function user(){
         return $this->belongsTo(\App\Models\User::class);
     }
+
+    public static function tipos(){
+        return [
+            'Nacional',
+            'Internacional'
+        ];
+    }
+
+    public function setPrecoAttribute($value){
+        $this->attributes['preco'] = str_replace(',','.',$value);
+    }
+    
+    public function getPrecoAttribute($value){
+        return number_format($value, 2, ',', '');
+    }
 }

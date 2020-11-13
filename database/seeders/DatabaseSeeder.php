@@ -41,6 +41,11 @@ class DatabaseSeeder extends Seeder
             #LivromasakikSeeder::class,
             #LivroMarceloDaudtSeeder::class,
             #LivroLFloroSeeder::class,
+			      #LivroAndreSeeder::class,
+			      #LivroAndreSeeder::class,
+            #LivromasakikSeeder::class,
+            #LivroMarceloDaudtSeeder::class,
+            #LivroLFloroSeeder::class,
             #LivroAndreSeeder::class,
             #LivromasakikSeeder::class,
             #LivroMarceloDaudtSeeder::class,
@@ -51,6 +56,8 @@ class DatabaseSeeder extends Seeder
             #LivroDenisSeeder::class,
             #LivroGroffSeeder::class,
             #LivroAlessandroOliveiraSeeder::class,
+            #LivroTapiaSeeder::class, 
+            #LivroDanielSeeder::class
             #LivroTapiaSeeder::class
             #LivroAlessandroOliveiraSeeder::class
             #LivroTapiaSeeder::class,
