@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LivroLFloroRequest;
 use App\Models\LivroLFloro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 
 //use Illuminate\Support\Facades\Validator;
@@ -16,9 +17,15 @@ class LivroLFloroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $livros = LivroLFloro::all();
+        if (isset($request->search)) {
+            $livros = LivroLFloro::where('autor', 'LIKE', "%{$request->search}%")
+                ->orWhere('titulo', 'LIKE', "%{$request->search}%")->paginate(5);
+        } else {
+            $livros = LivroLFloro::paginate(5);
+        }
+
         return view('livroslfloro.index', [
             'livros' => $livros
         ]);
@@ -31,6 +38,7 @@ class LivroLFloroController extends Controller
      */
     public function create()
     {
+        Gate::authorize('admin');
         return view('livroslfloro.create', [
             'livro' => new LivroLFloro
         ]);
@@ -72,6 +80,7 @@ class LivroLFloroController extends Controller
      */
     public function edit(LivroLFloro $livroslfloro)
     {
+        Gate::authorize('admin');
         return view('livroslfloro.edit', [
             'livro' => $livroslfloro
         ]);
@@ -101,6 +110,7 @@ class LivroLFloroController extends Controller
      */
     public function destroy($livroId)
     {
+        Gate::authorize('admin');
         $livro = LivroLFloro::find($livroId);
         $livro->delete();
         return redirect('/livroslfloro');

@@ -20,6 +20,7 @@ class LivroLFloroSeeder extends Seeder
             'autor' => "Machado de Assis",
             'isbn' => "9780195106817",
             'user_id' => 1,
+            'tipo' => 'Nacional',
         ];
 
         LivroLFloro::create($livro);
