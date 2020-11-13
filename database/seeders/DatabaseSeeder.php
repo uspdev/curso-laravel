@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             # para não quebrar a migration de quem ainda no replicado
             UserSeeder::class,
             LivroSeeder::class,
+            LivroLFloroSeeder::class,
             #LivroRicardoSeeder::class,
             #LivroSeeder::class,
             #LivroRicardoSeeder::class,
@@ -29,7 +30,6 @@ class DatabaseSeeder extends Seeder
             #LivroGabrielaSeeder::class,
             #LivroLauSeeder::class,
             #LivroGabrielaSeeder::class,
-            #LivroLFloroSeeder::class,
             #LivroTapiaSeeder::class,
             #LivroDanielSeeder::class
             #LivroMicheletSeeder::class,
@@ -37,7 +37,12 @@ class DatabaseSeeder extends Seeder
             #LivroMarisaSeeder::class,
             #LivroCelsoSeeder::class,
             #LivroFabioFDRPSeeder::class,
-			#LivroAndreSeeder::class,
+            #LivroAndreSeeder::class,
+            #LivromasakikSeeder::class,
+            #LivroMarceloDaudtSeeder::class,
+            #LivroLFloroSeeder::class,
+			      #LivroAndreSeeder::class,
+			      #LivroAndreSeeder::class,
             #LivromasakikSeeder::class,
             #LivroMarceloDaudtSeeder::class,
             #LivroLFloroSeeder::class,
@@ -51,6 +56,8 @@ class DatabaseSeeder extends Seeder
             #LivroDenisSeeder::class,
             #LivroGroffSeeder::class,
             #LivroAlessandroOliveiraSeeder::class,
+            #LivroTapiaSeeder::class, 
+            #LivroDanielSeeder::class
             #LivroTapiaSeeder::class
             #LivroAlessandroOliveiraSeeder::class
             LivroTapiaSeeder::class,

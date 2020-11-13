@@ -42,5 +42,6 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('logged', function() {
             return Auth::check();
         });
+
     }
 }

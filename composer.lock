@@ -4927,6 +4927,10 @@
                 }
             ],
             "description": "Uma biblioteca contendo validações USPdev",
+            "support": {
+                "issues": "https://github.com/uspdev/laravel-usp-validators/issues",
+                "source": "https://github.com/uspdev/laravel-usp-validators/tree/1.0.6"
+            },
             "time": "2020-09-23T20:33:53+00:00"
         },
         {
@@ -7386,5 +7390,5 @@
         "php": "^7.3"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }
