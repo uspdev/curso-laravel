@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests;
 
+use Database\Factories\LivroFernandoFactory;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use App\Models\LivroFernando;
 
 class LivroFernandoRequest extends FormRequest
 {
@@ -27,6 +30,8 @@ class LivroFernandoRequest extends FormRequest
             'titulo' => 'required',
             'autor' => 'required',
             'isbn' => ['required','integer'],
+            'tipo' => ['required', Rule::in(LivroFernando::tipos())],
+            'preco' => 'nullable'
         ];
 
         //se for create verifica unique isbn

@@ -20,6 +20,6 @@ class LivroFernandoSeeder extends Seeder
             'isbn' => '9780195106817'
         ];
         LivroFernando::create($livro);
-        LivroFernando::factory(10)->create();
+        LivroFernando::factory(5)->create();
     }
 }
