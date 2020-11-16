@@ -8,9 +8,15 @@ use App\Http\Requests\LivroGabrielaRequest;
 
 class LivroGabrielaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $livrogabrielas = LivroGabriela::all();
+        if(isset($request->search)){
+            $livrogabrielas = LivroGabriela::where('autor', 'LIKE', "%{$request->search}%")
+                                             ->orWhere('titulo', 'LIKE', "%{$request->search}%")->paginate(5);            
+        } else{
+            $livrogabrielas = LivroGabriela::paginate(5);
+        }
+
         return view('livrogabrielas.index',[
             'livrogabrielas' => $livrogabrielas
         ]);
@@ -18,6 +24,7 @@ class LivroGabrielaController extends Controller
     
     public function create()
     {
+        $this->authorize('admin');
         return view('livrogabrielas.create', [
             'livrogabriela' => new LivroGabriela
         ]);
@@ -41,6 +48,7 @@ class LivroGabrielaController extends Controller
     
     public function edit(LivroGabriela $livrogabriela)
     {   
+        $this->authorize('admin');
         return view('livrogabrielas.edit', [
             'livrogabriela' => $livrogabriela
         ]);
@@ -57,6 +65,7 @@ class LivroGabrielaController extends Controller
     
     public function destroy(LivroGabriela $livrogabriela)
     {
+        $this->authorize('admin');
         $livrogabriela->delete();
         return redirect("/livrogabrielas");
     }
