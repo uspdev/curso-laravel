@@ -1,4 +1,4 @@
-a@extends('main')
+@extends('main')
 @section('content')
 <form method="POST" action="/novoadmin">
     @csrf
