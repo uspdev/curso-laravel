@@ -18,6 +18,7 @@ class CreateLivrosTable extends Migration
             $table->timestamps();
             $table->string('titulo');
             $table->string('autor')->nullable();
+            $table->string('tipo')->nullable();
             $table->string('isbn');
 
             $table->unsignedBigInteger('user_id')->nullable();

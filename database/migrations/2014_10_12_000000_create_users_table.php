@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
             $table->string('codpes');
+            $table->string('is_admin')->nullable();
         });
     }
 
